@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>F:\installed apps\mysqlconnector\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,22 +50,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="datamodels\Account.cs" />
-    <Compile Include="datamodels\Address.cs" />
-    <Compile Include="datamodels\Banker.cs" />
-    <Compile Include="datamodels\Branch.cs" />
-    <Compile Include="datamodels\Check.cs" />
-    <Compile Include="datamodels\Customer.cs" />
-    <Compile Include="datamodels\Loan.cs" />
-    <Compile Include="datamodels\Transaction.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="controller\DatabaseManager.cs" />
+    <Compile Include="controller\DatabaseResult.cs" />
+    <Compile Include="view\model\Account.cs" />
+    <Compile Include="view\model\Address.cs" />
+    <Compile Include="view\model\Banker.cs" />
+    <Compile Include="view\model\Branch.cs" />
+    <Compile Include="view\model\Check.cs" />
+    <Compile Include="view\model\Customer.cs" />
+    <Compile Include="view\model\Loan.cs" />
+    <Compile Include="view\model\Transaction.cs" />
+    <Compile Include="view\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="view\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="view\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -84,5 +93,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

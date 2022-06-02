@@ -10,6 +10,7 @@ namespace BankMekllat.datamodels
     {
         private int id;
         private string city;
+        private string street;
         private string info;
         private string code_posti;
 
@@ -36,6 +37,6 @@ namespace BankMekllat.datamodels
             set => code_posti = value;
             get => code_posti;
         }
-
+        public string Street { get => street; set => street = value; }
     }
 }

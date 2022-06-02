@@ -13,7 +13,7 @@ namespace BankMekllat.datamodels
         private int address_Id;
         private int position; // 0 is boss and 1 is employee !!!
         private string fname;
-        private DateTime birthdate;
+        private string birthdate;
         private string lname;
         private string fathername;
         private string education;
@@ -27,7 +27,7 @@ namespace BankMekllat.datamodels
         public string Fname { get => fname; set => fname = value; }
         public string Lname { get => Lname1; set => Lname1 = value; }
         public string Lname1 { get => lname; set => lname = value; }
-        public DateTime Birthdate { get => birthdate; set => birthdate = value; }
+        public string Birthdate { get => birthdate; set => birthdate = value; }
         public string Fathername { get => fathername; set => fathername = value; }
         public string Education { get => education; set => education = value; }
         public bool Gender { get => gender; set => gender = value; }

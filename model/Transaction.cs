@@ -13,7 +13,7 @@ namespace BankMekllat.datamodels
         private string accountNumber;
         private int transactionType; // todo
         private long transactionAmount;
-        private DateTime transactionDate;
+        private string transactionDate;
         private string destenationCardNumber;
 
         public int TransactionNumber { get => transactionNumber; set => transactionNumber = value; }
@@ -21,7 +21,7 @@ namespace BankMekllat.datamodels
         public string AccountNumber { get => accountNumber; set => accountNumber = value; }
         public int TransactionType { get => transactionType; set => transactionType = value; }
         public long TransactionAmount { get => transactionAmount; set => transactionAmount = value; }
-        public DateTime TransactionDate { get => transactionDate; set => transactionDate = value; }
+        public string TransactionDate { get => transactionDate; set => transactionDate = value; }
         public string DestenationCardNumber { get => destenationCardNumber; set => destenationCardNumber = value; }
     }
 }

@@ -16,10 +16,8 @@ namespace BankMekllat.datamodels
         private string shebaaccountnumber;
         private string firstpass;
         private string secondpass;
-        private int secondDynamicCode;
-        private DateTime createDynamicCodeTime;
         private int accountType; // 0 -> current account , 1 -> saving account
-        private DateTime accountOpenningDate;
+        private string accountOpenningDate;
         private int profitPercentage;
         private long balance;
 
@@ -31,10 +29,8 @@ namespace BankMekllat.datamodels
         public string Shebaaccountnumber { get => shebaaccountnumber; set => shebaaccountnumber = value; }
         public string Firstpass { get => firstpass; set => firstpass = value; }
         public string Secondpass { get => secondpass; set => secondpass = value; }
-        public int SecondDynamicCode { get => secondDynamicCode; set => secondDynamicCode = value; }
-        public DateTime CreateDynamicCodeTime { get => createDynamicCodeTime; set => createDynamicCodeTime = value; }
         public int AccountType { get => accountType; set => accountType = value; }
-        public DateTime AccountOpenningDate { get => accountOpenningDate; set => accountOpenningDate = value; }
+        public string AccountOpenningDate { get => accountOpenningDate; set => accountOpenningDate = value; }
         public int ProfitPercentage { get => profitPercentage; set => profitPercentage = value; }
         public long Balance { get => balance; set => balance = value; }
     }

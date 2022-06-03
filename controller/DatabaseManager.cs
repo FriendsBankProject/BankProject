@@ -368,5 +368,190 @@ namespace BankMekllat.controller
                 return new DatabaseResult(false, ex.Message);
             }
         }
+        //check ******************************************
+
+       
+        // loan ********************************************
+        public DatabaseResult addLoan(Loan loan)
+        {
+            string sql = "insert into loan values(" + loan.LoanNumber.ToString() + ",'" + loan.LoanGaruntor + "','" +
+                loan.BorrowerNationalCode + "'," + loan.LoanAmount.ToString() + ",'" + loan.DueDate.ToString() + "','" +
+                loan.BankerNationalCode + "')";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        public DatabaseResult updateLoan(Loan loan)
+        {
+            string sql = "update loan set loanguarantor='" + loan.LoanGaruntor + "',borrowernationalcode='" +
+                loan.BorrowerNationalCode + "',loanamount=" + loan.LoanAmount.ToString() + ",duedate='" + loan.DueDate.ToString() + 
+                "',bankernationalcode='" + loan.BankerNationalCode + "' where loannumber ='"+loan.LoanNumber.ToString()+"'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        public DatabaseResult deleteLoan(int loannumber)
+        {
+            string sql = "delete from loan where loannumber='" + loannumber.ToString() + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        // loan *******************************
+
+        //transaction *******************************
+        public DatabaseResult addTransaction(Transaction transaction)
+        {
+            string sql = "insert into transaction values('" + transaction.TransactionNumber.ToString() + "','" + transaction.CustomerNationalCode + "','" +
+                transaction.AccountNumber + "','" + transaction.TransactionType + "','" + transaction.TransactionAmount + "','" +
+                transaction.TransactionDate+"','"+transaction.DestenationCardNumber + "')";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        public DatabaseResult updateTransaction(Transaction transaction)
+        {
+            string sql = "update transaction set customernationalcode='" + transaction.CustomerNationalCode + "',accountnumber='" +
+                transaction.AccountNumber + "',transactionamount='" + transaction.TransactionAmount.ToString() + "',transactiondate='" + transaction.TransactionDate +
+                "',destinationcardnumber='" + transaction.DestenationCardNumber + "' where transactionnumber ='" + transaction.TransactionNumber.ToString() + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        public DatabaseResult deleteTransaction(int transactionnumber)
+        {
+            string sql = "delete from transaction where transactionnumber='" + transactionnumber.ToString() + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+        // transaction ************************
+
+        //account *******************************
+        public DatabaseResult addAccount(Account account)
+        {
+            string sql = "insert into account values('" + account.AccountNumber + "','" + account.BankerNationalCode + "','" +
+                account.CustomerNationalCode + "','" + account.Branchcode + "','" + account.Cardnumber + "','" +
+                account.Shebaaccountnumber+ "','" + account.Firstpass+"','" +account.Secondpass+"','"+account.AccountType.ToString()
+                +"','"+account.AccountOpenningDate+"','"+account.ProfitPercentage.ToString()+"','"+account.Balance+ "')";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        public DatabaseResult updateAccount(Account account)
+        {
+            string sql = "update account set bankernationalcode='"+ account.BankerNationalCode + "',customernationalcode='" +
+                 account.CustomerNationalCode + "',branchcode='" + account.Branchcode + "',cardnumber='" + account.Cardnumber + "',shebaaccountnumber='" +
+                 account.Shebaaccountnumber + "',firstpassword='" + account.Firstpass + "',secondpassword='" + account.Secondpass + "',balance='" + account.Balance + 
+                 "' where accountnumber ='"+account.AccountNumber+"'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        public DatabaseResult deleteAccount(string accountnumber)
+        {
+            string sql = "delete from account where accountnumber='" + accountnumber + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+        // transaction ************************
     }
 }

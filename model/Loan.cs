@@ -12,16 +12,14 @@ namespace BankMekllat.datamodels
         private string loanGaruntor;
         private string borrowerNationalCode;
         private long loanAmount;
-        private DateTime increase;
-        private DateTime dueDate;
+        private string dueDate;
         private string bankerNationalCode;
 
         public int LoanNumber { get => loanNumber; set => loanNumber = value; }
         public string LoanGaruntor { get => loanGaruntor; set => loanGaruntor = value; }
         public string BorrowerNationalCode { get => borrowerNationalCode; set => borrowerNationalCode = value; }
         public long LoanAmount { get => loanAmount; set => loanAmount = value; }
-        public DateTime Increase { get => increase; set => increase = value; }
-        public DateTime DueDate { get => dueDate; set => dueDate = value; }
+        public string DueDate { get => dueDate; set => dueDate = value; }
         public string BankerNationalCode { get => bankerNationalCode; set => bankerNationalCode = value; }
     }
 }

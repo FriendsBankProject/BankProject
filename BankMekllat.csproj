@@ -60,73 +60,57 @@
     <Compile Include="model\Customer.cs" />
     <Compile Include="model\Loan.cs" />
     <Compile Include="model\Transaction.cs" />
-    <Compile Include="view\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="view\this is baba\this is baba\Form1.cs">
+    <Compile Include="view\account.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\account.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\account.Designer.cs">
+    <Compile Include="view\account.Designer.cs">
       <DependentUpon>account.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\Adress.cs">
+    <Compile Include="view\Adress.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\Adress.Designer.cs">
+    <Compile Include="view\Adress.Designer.cs">
       <DependentUpon>Adress.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\Banker.cs">
+    <Compile Include="view\Banker.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\Banker.Designer.cs">
+    <Compile Include="view\Banker.Designer.cs">
       <DependentUpon>Banker.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\Branch.cs">
+    <Compile Include="view\Branch.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\Branch.Designer.cs">
+    <Compile Include="view\Branch.Designer.cs">
       <DependentUpon>Branch.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\check.cs">
+    <Compile Include="view\check.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\check.Designer.cs">
+    <Compile Include="view\check.Designer.cs">
       <DependentUpon>check.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\customer.cs">
+    <Compile Include="view\customer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\customer.Designer.cs">
+    <Compile Include="view\customer.Designer.cs">
       <DependentUpon>customer.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\Form1.Designer.cs" />
-    <Compile Include="view\this is baba\this is baba\forms\loan.cs">
+    <Compile Include="view\Form1.Designer.cs" />
+    <Compile Include="view\loan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\loan.Designer.cs">
+    <Compile Include="view\loan.Designer.cs">
       <DependentUpon>loan.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\transaction.cs">
+    <Compile Include="view\transaction.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\forms\transaction.Designer.cs">
+    <Compile Include="view\transaction.Designer.cs">
       <DependentUpon>transaction.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\this is baba\this is baba\Program.cs" />
-    <Compile Include="view\this is baba\this is baba\Properties\AssemblyInfo.cs" />
-    <Compile Include="view\this is baba\this is baba\Properties\Resources.Designer.cs" />
-    <Compile Include="view\this is baba\this is baba\Properties\Settings.Designer.cs" />
-    <EmbeddedResource Include="view\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -136,42 +120,31 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="view\this is baba\this is baba\forms\account.resx">
+    <EmbeddedResource Include="view\account.resx">
       <DependentUpon>account.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\this is baba\this is baba\forms\Adress.resx">
+    <EmbeddedResource Include="view\Adress.resx">
       <DependentUpon>Adress.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\this is baba\this is baba\forms\Banker.resx">
+    <EmbeddedResource Include="view\Banker.resx">
       <DependentUpon>Banker.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\this is baba\this is baba\forms\Branch.resx">
+    <EmbeddedResource Include="view\Branch.resx">
       <DependentUpon>Branch.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\this is baba\this is baba\forms\check.resx">
+    <EmbeddedResource Include="view\check.resx">
       <DependentUpon>check.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\this is baba\this is baba\forms\customer.resx">
+    <EmbeddedResource Include="view\customer.resx">
       <DependentUpon>customer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\this is baba\this is baba\forms\Form1.resx" />
-    <EmbeddedResource Include="view\this is baba\this is baba\forms\loan.resx">
+    <EmbeddedResource Include="view\Form.resx" />
+    <EmbeddedResource Include="view\loan.resx">
       <DependentUpon>loan.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\this is baba\this is baba\forms\transaction.resx">
+    <EmbeddedResource Include="view\transaction.resx">
       <DependentUpon>transaction.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\this is baba\this is baba\obj\Debug\this_is_baba.Branch.resources" />
-    <EmbeddedResource Include="view\this is baba\this is baba\obj\Debug\this_is_baba.Form1.resources" />
-    <EmbeddedResource Include="view\this is baba\this is baba\obj\Debug\this_is_baba.forms.account.resources" />
-    <EmbeddedResource Include="view\this is baba\this is baba\obj\Debug\this_is_baba.forms.Adress.resources" />
-    <EmbeddedResource Include="view\this is baba\this is baba\obj\Debug\this_is_baba.forms.Banker.resources" />
-    <EmbeddedResource Include="view\this is baba\this is baba\obj\Debug\this_is_baba.forms.check.resources" />
-    <EmbeddedResource Include="view\this is baba\this is baba\obj\Debug\this_is_baba.forms.customer.resources" />
-    <EmbeddedResource Include="view\this is baba\this is baba\obj\Debug\this_is_baba.forms.loan.resources" />
-    <EmbeddedResource Include="view\this is baba\this is baba\obj\Debug\this_is_baba.forms.transaction.resources" />
-    <EmbeddedResource Include="view\this is baba\this is baba\obj\Debug\this_is_baba.Properties.Resources.resources" />
-    <EmbeddedResource Include="view\this is baba\this is baba\Properties\Resources.resx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -181,37 +154,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="view\this is baba\this is baba\App.config" />
-    <None Include="view\this is baba\this is baba\bin\Debug\this is baba.exe.config" />
-    <None Include="view\this is baba\this is baba\obj\Debug\DesignTimeResolveAssemblyReferences.cache" />
-    <None Include="view\this is baba\this is baba\obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <None Include="view\this is baba\this is baba\obj\Debug\this is baba.csproj.AssemblyReference.cache" />
-    <None Include="view\this is baba\this is baba\obj\Debug\this is baba.csproj.CoreCompileInputs.cache" />
-    <None Include="view\this is baba\this is baba\obj\Debug\this is baba.csproj.GenerateResource.cache" />
-    <None Include="view\this is baba\this is baba\obj\Debug\this is baba.csprojAssemblyReference.cache" />
-    <None Include="view\this is baba\this is baba\obj\Release\this is baba.csproj.CoreCompileInputs.cache" />
-    <None Include="view\this is baba\this is baba\Properties\Settings.settings" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="view\this is baba\this is baba.sln" />
-    <Content Include="view\this is baba\this is baba\bin\Debug\this is baba.exe" />
-    <Content Include="view\this is baba\this is baba\bin\Debug\this is baba.pdb" />
-    <Content Include="view\this is baba\this is baba\obj\Debug\TempPE\Properties.Resources.Designer.cs.dll" />
-    <Content Include="view\this is baba\this is baba\obj\Debug\this is baba.csproj.FileListAbsolute.txt" />
-    <Content Include="view\this is baba\this is baba\obj\Debug\this is baba.exe" />
-    <Content Include="view\this is baba\this is baba\obj\Debug\this is baba.pdb" />
-    <Content Include="view\this is baba\this is baba\Resources\external-adress-book-office-icongeek26-outline-gradient-icongeek26.png" />
-    <Content Include="view\this is baba\this is baba\Resources\external-transaction-bitcoin-icongeek26-outline-gradient-icongeek26-1.png" />
-    <Content Include="view\this is baba\this is baba\Resources\external-transaction-bitcoin-icongeek26-outline-gradient-icongeek26-11.png" />
-    <Content Include="view\this is baba\this is baba\Resources\guest-male.png" />
-    <Content Include="view\this is baba\this is baba\Resources\home.png" />
-    <Content Include="view\this is baba\this is baba\this is baba.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="view\this is baba\this is baba\bin\Release\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

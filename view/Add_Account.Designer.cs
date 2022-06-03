@@ -38,7 +38,7 @@ namespace BankMekllat.view
             this.lbl_Fname = new System.Windows.Forms.Label();
             this.txt_LName = new System.Windows.Forms.TextBox();
             this.txt_FName = new System.Windows.Forms.TextBox();
-            this.lbl_Address = new System.Windows.Forms.Label();
+            this.lbl_city = new System.Windows.Forms.Label();
             this.lbl_Education = new System.Windows.Forms.Label();
             this.lbl_job = new System.Windows.Forms.Label();
             this.txt_FatherName = new System.Windows.Forms.TextBox();
@@ -46,7 +46,7 @@ namespace BankMekllat.view
             this.txt_CustomerNational = new System.Windows.Forms.TextBox();
             this.txt_PhoneNum = new System.Windows.Forms.TextBox();
             this.txt_Education = new System.Windows.Forms.TextBox();
-            this.txt_Address = new System.Windows.Forms.TextBox();
+            this.txt_city = new System.Windows.Forms.TextBox();
             this.txt_Job = new System.Windows.Forms.TextBox();
             this.combo_gender = new System.Windows.Forms.ComboBox();
             this.lbl_Gender = new System.Windows.Forms.Label();
@@ -59,7 +59,6 @@ namespace BankMekllat.view
             this.txt_Sheba = new System.Windows.Forms.TextBox();
             this.txt_FirstPass = new System.Windows.Forms.TextBox();
             this.txt_SecondPass = new System.Windows.Forms.TextBox();
-            this.txt_AccType = new System.Windows.Forms.TextBox();
             this.txt_OpeningDate = new System.Windows.Forms.TextBox();
             this.txt_Profit = new System.Windows.Forms.TextBox();
             this.textBox20 = new System.Windows.Forms.TextBox();
@@ -77,6 +76,13 @@ namespace BankMekllat.view
             this.lbl_Balance = new System.Windows.Forms.Label();
             this.txt_Balance = new System.Windows.Forms.TextBox();
             this.btn_Submit = new System.Windows.Forms.Button();
+            this.combo_acctype = new System.Windows.Forms.ComboBox();
+            this.txt_street = new System.Windows.Forms.TextBox();
+            this.txt_info = new System.Windows.Forms.TextBox();
+            this.txt_zip = new System.Windows.Forms.TextBox();
+            this.lbl_street = new System.Windows.Forms.Label();
+            this.lbl_info = new System.Windows.Forms.Label();
+            this.lbl_zip = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -84,10 +90,16 @@ namespace BankMekllat.view
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_zip);
+            this.groupBox1.Controls.Add(this.lbl_info);
+            this.groupBox1.Controls.Add(this.lbl_street);
+            this.groupBox1.Controls.Add(this.txt_zip);
+            this.groupBox1.Controls.Add(this.txt_info);
+            this.groupBox1.Controls.Add(this.txt_street);
             this.groupBox1.Controls.Add(this.lbl_Gender);
             this.groupBox1.Controls.Add(this.combo_gender);
             this.groupBox1.Controls.Add(this.txt_Job);
-            this.groupBox1.Controls.Add(this.txt_Address);
+            this.groupBox1.Controls.Add(this.txt_city);
             this.groupBox1.Controls.Add(this.txt_Education);
             this.groupBox1.Controls.Add(this.txt_PhoneNum);
             this.groupBox1.Controls.Add(this.txt_CustomerNational);
@@ -95,7 +107,7 @@ namespace BankMekllat.view
             this.groupBox1.Controls.Add(this.txt_FatherName);
             this.groupBox1.Controls.Add(this.lbl_job);
             this.groupBox1.Controls.Add(this.lbl_Education);
-            this.groupBox1.Controls.Add(this.lbl_Address);
+            this.groupBox1.Controls.Add(this.lbl_city);
             this.groupBox1.Controls.Add(this.lbl_Phonenumber);
             this.groupBox1.Controls.Add(this.lbl_Nationalcode);
             this.groupBox1.Controls.Add(this.lbl_Birthdate);
@@ -179,14 +191,14 @@ namespace BankMekllat.view
             this.txt_FName.Size = new System.Drawing.Size(133, 22);
             this.txt_FName.TabIndex = 0;
             // 
-            // lbl_Address
+            // lbl_city
             // 
-            this.lbl_Address.AutoSize = true;
-            this.lbl_Address.Location = new System.Drawing.Point(42, 205);
-            this.lbl_Address.Name = "lbl_Address";
-            this.lbl_Address.Size = new System.Drawing.Size(64, 17);
-            this.lbl_Address.TabIndex = 8;
-            this.lbl_Address.Text = "Address:";
+            this.lbl_city.AutoSize = true;
+            this.lbl_city.Location = new System.Drawing.Point(84, 210);
+            this.lbl_city.Name = "lbl_city";
+            this.lbl_city.Size = new System.Drawing.Size(33, 17);
+            this.lbl_city.TabIndex = 8;
+            this.lbl_city.Text = "city:";
             // 
             // lbl_Education
             // 
@@ -241,12 +253,12 @@ namespace BankMekllat.view
             this.txt_Education.Size = new System.Drawing.Size(133, 22);
             this.txt_Education.TabIndex = 15;
             // 
-            // txt_Address
+            // txt_city
             // 
-            this.txt_Address.Location = new System.Drawing.Point(135, 205);
-            this.txt_Address.Name = "txt_Address";
-            this.txt_Address.Size = new System.Drawing.Size(516, 22);
-            this.txt_Address.TabIndex = 16;
+            this.txt_city.Location = new System.Drawing.Point(135, 205);
+            this.txt_city.Name = "txt_city";
+            this.txt_city.Size = new System.Drawing.Size(87, 22);
+            this.txt_city.TabIndex = 16;
             // 
             // txt_Job
             // 
@@ -286,6 +298,7 @@ namespace BankMekllat.view
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.combo_acctype);
             this.groupBox2.Controls.Add(this.txt_Balance);
             this.groupBox2.Controls.Add(this.lbl_Balance);
             this.groupBox2.Controls.Add(this.lbl_Profit);
@@ -302,7 +315,6 @@ namespace BankMekllat.view
             this.groupBox2.Controls.Add(this.textBox20);
             this.groupBox2.Controls.Add(this.txt_Profit);
             this.groupBox2.Controls.Add(this.txt_OpeningDate);
-            this.groupBox2.Controls.Add(this.txt_AccType);
             this.groupBox2.Controls.Add(this.txt_SecondPass);
             this.groupBox2.Controls.Add(this.txt_FirstPass);
             this.groupBox2.Controls.Add(this.txt_Sheba);
@@ -365,13 +377,6 @@ namespace BankMekllat.view
             this.txt_SecondPass.Name = "txt_SecondPass";
             this.txt_SecondPass.Size = new System.Drawing.Size(135, 22);
             this.txt_SecondPass.TabIndex = 6;
-            // 
-            // txt_AccType
-            // 
-            this.txt_AccType.Location = new System.Drawing.Point(516, 207);
-            this.txt_AccType.Name = "txt_AccType";
-            this.txt_AccType.Size = new System.Drawing.Size(135, 22);
-            this.txt_AccType.TabIndex = 7;
             // 
             // txt_OpeningDate
             // 
@@ -516,6 +521,66 @@ namespace BankMekllat.view
             this.btn_Submit.TabIndex = 1;
             this.btn_Submit.Text = "Submit";
             this.btn_Submit.UseVisualStyleBackColor = true;
+            this.btn_Submit.Click += new System.EventHandler(this.btn_Submit_Click);
+            // 
+            // combo_acctype
+            // 
+            this.combo_acctype.FormattingEnabled = true;
+            this.combo_acctype.Items.AddRange(new object[] {
+            "current",
+            "saving"});
+            this.combo_acctype.Location = new System.Drawing.Point(516, 210);
+            this.combo_acctype.Name = "combo_acctype";
+            this.combo_acctype.Size = new System.Drawing.Size(91, 24);
+            this.combo_acctype.TabIndex = 25;
+            // 
+            // txt_street
+            // 
+            this.txt_street.Location = new System.Drawing.Point(274, 205);
+            this.txt_street.Name = "txt_street";
+            this.txt_street.Size = new System.Drawing.Size(101, 22);
+            this.txt_street.TabIndex = 20;
+            // 
+            // txt_info
+            // 
+            this.txt_info.Location = new System.Drawing.Point(420, 205);
+            this.txt_info.Name = "txt_info";
+            this.txt_info.Size = new System.Drawing.Size(77, 22);
+            this.txt_info.TabIndex = 21;
+            // 
+            // txt_zip
+            // 
+            this.txt_zip.Location = new System.Drawing.Point(557, 205);
+            this.txt_zip.Name = "txt_zip";
+            this.txt_zip.Size = new System.Drawing.Size(94, 22);
+            this.txt_zip.TabIndex = 22;
+            // 
+            // lbl_street
+            // 
+            this.lbl_street.AutoSize = true;
+            this.lbl_street.Location = new System.Drawing.Point(228, 208);
+            this.lbl_street.Name = "lbl_street";
+            this.lbl_street.Size = new System.Drawing.Size(48, 17);
+            this.lbl_street.TabIndex = 23;
+            this.lbl_street.Text = "street:";
+            // 
+            // lbl_info
+            // 
+            this.lbl_info.AutoSize = true;
+            this.lbl_info.Location = new System.Drawing.Point(381, 205);
+            this.lbl_info.Name = "lbl_info";
+            this.lbl_info.Size = new System.Drawing.Size(35, 17);
+            this.lbl_info.TabIndex = 24;
+            this.lbl_info.Text = "info:";
+            // 
+            // lbl_zip
+            // 
+            this.lbl_zip.AutoSize = true;
+            this.lbl_zip.Location = new System.Drawing.Point(518, 205);
+            this.lbl_zip.Name = "lbl_zip";
+            this.lbl_zip.Size = new System.Drawing.Size(30, 17);
+            this.lbl_zip.TabIndex = 25;
+            this.lbl_zip.Text = "zip:";
             // 
             // Add_Account
             // 
@@ -548,7 +613,7 @@ namespace BankMekllat.view
         private System.Windows.Forms.TextBox txt_FName;
         private System.Windows.Forms.Label lbl_Phonenumber;
         private System.Windows.Forms.TextBox txt_Job;
-        private System.Windows.Forms.TextBox txt_Address;
+        private System.Windows.Forms.TextBox txt_city;
         private System.Windows.Forms.TextBox txt_Education;
         private System.Windows.Forms.TextBox txt_PhoneNum;
         private System.Windows.Forms.TextBox txt_CustomerNational;
@@ -556,7 +621,7 @@ namespace BankMekllat.view
         private System.Windows.Forms.TextBox txt_FatherName;
         private System.Windows.Forms.Label lbl_job;
         private System.Windows.Forms.Label lbl_Education;
-        private System.Windows.Forms.Label lbl_Address;
+        private System.Windows.Forms.Label lbl_city;
         private System.Windows.Forms.Label lbl_Gender;
         private System.Windows.Forms.ComboBox combo_gender;
         private System.Windows.Forms.Panel panel1;
@@ -579,12 +644,18 @@ namespace BankMekllat.view
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.TextBox txt_Profit;
         private System.Windows.Forms.TextBox txt_OpeningDate;
-        private System.Windows.Forms.TextBox txt_AccType;
         private System.Windows.Forms.TextBox txt_SecondPass;
         private System.Windows.Forms.TextBox txt_FirstPass;
         private System.Windows.Forms.TextBox txt_Sheba;
         private System.Windows.Forms.TextBox txt_CardNum;
         private System.Windows.Forms.TextBox txt_BranchCode;
         private System.Windows.Forms.Button btn_Submit;
+        private System.Windows.Forms.ComboBox combo_acctype;
+        private System.Windows.Forms.TextBox txt_zip;
+        private System.Windows.Forms.TextBox txt_info;
+        private System.Windows.Forms.TextBox txt_street;
+        private System.Windows.Forms.Label lbl_zip;
+        private System.Windows.Forms.Label lbl_info;
+        private System.Windows.Forms.Label lbl_street;
     }
 }

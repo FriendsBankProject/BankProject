@@ -87,5 +87,11 @@ namespace BankMekllat.view
             info_lbl.Text = customer.CustomerDetails.ToString();
             info_lbl.Text += "\n\n" + customer.Address.ToString();
         }
+
+        private void btn_AddAcc_Click(object sender, EventArgs e)
+        {
+            Add_Account add_Account = new Add_Account();
+            add_Account.Show();
+        }
     }
 }

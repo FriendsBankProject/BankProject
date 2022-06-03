@@ -236,5 +236,32 @@ namespace BankMekllat.controller
                 return new DatabaseResult(false, ex.Message);
             }
         }
+
+        // banker ******************************************
+
+        public DatabaseResult addCustomer(Customer customer)
+        {
+            short gender;
+            if (customer.Gender)
+            {
+                gender = 1;
+            } else gender = 0;
+            string sql = "insert into customer values('" + customer.NationalCode + "','" + customer.Address_Id +
+                "','" + customer.Fname + "','" + customer.Lname + "','" + customer.Birthdate + "','" + customer.FatherName +
+                "','" + customer.Education + "','" + customer.Job + "'," + gender + ",'" + customer.PhoneNumber + "')";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
     }
 }

@@ -12,7 +12,7 @@ namespace BankMekllat.datamodels
         private int address_Id;
         private string fname;
         private string lname;
-        private DateTime birthdate;
+        private string birthdate;
         private string fatherName;
         private string education;
         private string job;
@@ -23,7 +23,7 @@ namespace BankMekllat.datamodels
         public int Address_Id { get => address_Id; set => address_Id = value; }
         public string Fname { get => fname; set => fname = value; }
         public string Lname { get => lname; set => lname = value; }
-        public DateTime Birthdate { get => birthdate; set => birthdate = value; }
+        public string Birthdate { get => birthdate; set => birthdate = value; }
         public string FatherName { get => fatherName; set => fatherName = value; }
         public string Education { get => education; set => education = value; }
         public string Job { get => job; set => job = value; }

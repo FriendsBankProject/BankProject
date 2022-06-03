@@ -23,19 +23,19 @@ namespace BankMekllat
         {
             DatabaseManager database = DatabaseManager.getInstance();
             database.connect("1380saeed.");
-            Banker banker = new Banker();
-            banker.Fname = "mahammgsad";
-            banker.Lname = "mahammagssgdi";
-            banker.Fathername = "asghargs";
-            banker.Branchcode = "1234";
-            banker.Address_Id = 2;
-            banker.Birthdate = new DateTime(2022, 2, 3).ToString("yyyy-MM-dd");
-            banker.Education = "diploma";
-            banker.Gender = true;
-            banker.NationalCode = "3980395466";
-            banker.PhoneNumber = "09189279189";
-            banker.Position = 0;
-           DatabaseResult dr = database.deleteBanker("3980395468");
+            Customer customer = new Customer();
+            customer.Fname = "mahammgsad";
+            customer.Lname = "mahammagssgdi";
+            customer.FatherName = "asghargs";
+            customer.Address_Id = 2;
+            customer.Birthdate = new DateTime(2022, 2, 3).ToString("yyyy-MM-dd");
+            customer.Education = "diploma";
+            customer.Gender = true;
+            customer.NationalCode = "3980395466";
+            customer.PhoneNumber = "09189279189";
+            customer.Job = "mechanic";
+            customer.NationalCode = "3991005217";
+           DatabaseResult dr = database.addCustomer(customer);
             button1.Text = dr.Result.ToString();
             MessageBox.Show(dr.Error);
         }

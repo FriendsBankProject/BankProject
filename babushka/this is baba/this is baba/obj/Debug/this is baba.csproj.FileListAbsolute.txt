@@ -1,0 +1,18 @@
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\bin\Debug\this is baba.exe.config
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\bin\Debug\this is baba.exe
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\bin\Debug\this is baba.pdb
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this is baba.csproj.AssemblyReference.cache
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this_is_baba.Form1.resources
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this_is_baba.Properties.Resources.resources
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this is baba.csproj.GenerateResource.cache
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this is baba.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this is baba.exe
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this is baba.pdb
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this_is_baba.forms.account.resources
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this_is_baba.forms.Adress.resources
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this_is_baba.forms.Banker.resources
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this_is_baba.Branch.resources
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this_is_baba.forms.check.resources
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this_is_baba.forms.customer.resources
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this_is_baba.forms.loan.resources
+C:\Users\Lenovo\OneDrive\Desktop\babushka\this is baba\this is baba\obj\Debug\this_is_baba.forms.transaction.resources

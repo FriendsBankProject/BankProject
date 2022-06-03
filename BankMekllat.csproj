@@ -98,7 +98,12 @@
     <Compile Include="view\customer.Designer.cs">
       <DependentUpon>customer.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\Form1.Designer.cs" />
+    <Compile Include="view\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\loan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +144,9 @@
       <DependentUpon>customer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Form.resx" />
+    <EmbeddedResource Include="view\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\loan.resx">
       <DependentUpon>loan.cs</DependentUpon>
     </EmbeddedResource>

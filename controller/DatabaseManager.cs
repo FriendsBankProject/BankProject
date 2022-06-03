@@ -350,5 +350,25 @@ namespace BankMekllat.controller
                 return new DatabaseResult(false, ex.Message);
             }
         }
+
+        public DatabaseResult deleteCheck(string checknumber)
+        {
+            string sql = "delete from _check where checknumber='" + checknumber + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        // check *************************************************
     }
 }

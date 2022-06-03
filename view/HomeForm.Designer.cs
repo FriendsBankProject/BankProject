@@ -28,39 +28,43 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listBox3 = new System.Windows.Forms.ListBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.Bankers_list = new System.Windows.Forms.ListBox();
+            this.Customers_list = new System.Windows.Forms.ListBox();
+            this.Accounts_list = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.branches_list = new System.Windows.Forms.ListBox();
+            this.info_lbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listBox3
+            // Bankers_list
             // 
-            this.listBox3.FormattingEnabled = true;
-            this.listBox3.Location = new System.Drawing.Point(209, 94);
-            this.listBox3.Name = "listBox3";
-            this.listBox3.Size = new System.Drawing.Size(182, 121);
-            this.listBox3.TabIndex = 3;
+            this.Bankers_list.FormattingEnabled = true;
+            this.Bankers_list.Location = new System.Drawing.Point(209, 94);
+            this.Bankers_list.Name = "Bankers_list";
+            this.Bankers_list.Size = new System.Drawing.Size(182, 121);
+            this.Bankers_list.TabIndex = 3;
+            this.Bankers_list.SelectedIndexChanged += new System.EventHandler(this.Bankers_list_SelectedIndexChanged);
             // 
-            // listBox1
+            // Customers_list
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(627, 94);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(180, 121);
-            this.listBox1.TabIndex = 4;
+            this.Customers_list.FormattingEnabled = true;
+            this.Customers_list.Location = new System.Drawing.Point(627, 94);
+            this.Customers_list.Name = "Customers_list";
+            this.Customers_list.Size = new System.Drawing.Size(180, 121);
+            this.Customers_list.TabIndex = 4;
+            this.Customers_list.SelectedIndexChanged += new System.EventHandler(this.Customers_list_SelectedIndexChanged);
             // 
-            // listBox2
+            // Accounts_list
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(410, 94);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.Size = new System.Drawing.Size(194, 121);
-            this.listBox2.TabIndex = 5;
+            this.Accounts_list.FormattingEnabled = true;
+            this.Accounts_list.Location = new System.Drawing.Point(410, 94);
+            this.Accounts_list.Name = "Accounts_list";
+            this.Accounts_list.Size = new System.Drawing.Size(194, 121);
+            this.Accounts_list.TabIndex = 5;
+            this.Accounts_list.SelectedIndexChanged += new System.EventHandler(this.Accounts_list_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -105,20 +109,30 @@
             this.branches_list.Name = "branches_list";
             this.branches_list.Size = new System.Drawing.Size(182, 121);
             this.branches_list.TabIndex = 9;
+            this.branches_list.SelectedIndexChanged += new System.EventHandler(this.Branches_list_SelectedIndexChanged);
+            // 
+            // info_lbl
+            // 
+            this.info_lbl.AutoSize = true;
+            this.info_lbl.Location = new System.Drawing.Point(24, 245);
+            this.info_lbl.Name = "info_lbl";
+            this.info_lbl.Size = new System.Drawing.Size(0, 13);
+            this.info_lbl.TabIndex = 11;
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 450);
+            this.Controls.Add(this.info_lbl);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.branches_list);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox2);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.listBox3);
+            this.Controls.Add(this.Accounts_list);
+            this.Controls.Add(this.Customers_list);
+            this.Controls.Add(this.Bankers_list);
             this.Name = "HomeForm";
             this.Text = "HomeForm";
             this.Load += new System.EventHandler(this.HomeForm_Load);
@@ -129,13 +143,14 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listBox3;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.ListBox Bankers_list;
+        private System.Windows.Forms.ListBox Customers_list;
+        private System.Windows.Forms.ListBox Accounts_list;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox branches_list;
+        private System.Windows.Forms.Label info_lbl;
     }
 }

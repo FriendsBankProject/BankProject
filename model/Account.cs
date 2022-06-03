@@ -1,37 +1,35 @@
-﻿using System;
+﻿using BankMekllat.datamodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankMekllat.datamodels
+namespace BankMekllat.model
 {
     class Account
     {
-        private string accountNumber;
-        private string bankerNationalCode;
-        private string customerNationalCode;
-        private string branchcode;
-        private string cardnumber;
-        private string shebaaccountnumber;
-        private string firstpass;
-        private string secondpass;
-        private int accountType; // 0 -> current account , 1 -> saving account
-        private string accountOpenningDate;
-        private int profitPercentage;
-        private long balance;
+        private AccountDetails account;
+        private CustomerDetails customer;
+        private BankerDetails banker;
+        private BranchDetails branch;
 
-        public string AccountNumber { get => accountNumber; set => accountNumber = value; }
-        public string BankerNationalCode { get => bankerNationalCode; set => bankerNationalCode = value; }
-        public string CustomerNationalCode { get => customerNationalCode; set => customerNationalCode = value; }
-        public string Branchcode { get => branchcode; set => branchcode = value; }
-        public string Cardnumber { get => cardnumber; set => cardnumber = value; }
-        public string Shebaaccountnumber { get => shebaaccountnumber; set => shebaaccountnumber = value; }
-        public string Firstpass { get => firstpass; set => firstpass = value; }
-        public string Secondpass { get => secondpass; set => secondpass = value; }
-        public int AccountType { get => accountType; set => accountType = value; }
-        public string AccountOpenningDate { get => accountOpenningDate; set => accountOpenningDate = value; }
-        public int ProfitPercentage { get => profitPercentage; set => profitPercentage = value; }
-        public long Balance { get => balance; set => balance = value; }
+        public Account(AccountDetails account,CustomerDetails customer,BankerDetails banker,BranchDetails branch)
+        {
+            this.AccountDetails = account;
+            this.Customer = customer;
+            this.Banker = banker;
+            this.Branch = branch;
+        }
+
+        internal AccountDetails AccountDetails { get => account; set => account = value; }
+        internal CustomerDetails Customer { get => customer; set => customer = value; }
+        internal BankerDetails Banker { get => banker; set => banker = value; }
+        internal BranchDetails Branch { get => branch; set => branch = value; }
+
+        public override string ToString()
+        {
+            return customer.Fname + " " + customer.Lname + " " + account.AccountNumber + " " + banker.Fname;
+        }
     }
 }

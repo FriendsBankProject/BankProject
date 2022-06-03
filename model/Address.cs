@@ -38,5 +38,10 @@ namespace BankMekllat.datamodels
             get => code_posti;
         }
         public string Street { get => street; set => street = value; }
+
+        public override string ToString()
+        {
+            return "Address:\n"+ city + "\n" + street + "\n" + info + "\n" + code_posti;
+        }
     }
 }

@@ -37,6 +37,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.branches_list = new System.Windows.Forms.ListBox();
             this.info_lbl = new System.Windows.Forms.Label();
+            this.account_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Bankers_list
@@ -119,11 +120,22 @@
             this.info_lbl.Size = new System.Drawing.Size(0, 13);
             this.info_lbl.TabIndex = 11;
             // 
+            // account_btn
+            // 
+            this.account_btn.Location = new System.Drawing.Point(732, 245);
+            this.account_btn.Name = "account_btn";
+            this.account_btn.Size = new System.Drawing.Size(75, 23);
+            this.account_btn.TabIndex = 12;
+            this.account_btn.Text = "Account";
+            this.account_btn.UseVisualStyleBackColor = true;
+            this.account_btn.Click += new System.EventHandler(this.Account_btn_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 450);
+            this.Controls.Add(this.account_btn);
             this.Controls.Add(this.info_lbl);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.branches_list);
@@ -152,5 +164,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox branches_list;
         private System.Windows.Forms.Label info_lbl;
+        private System.Windows.Forms.Button account_btn;
     }
 }

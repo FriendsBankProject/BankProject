@@ -9,11 +9,11 @@ namespace BankMekllat.datamodels
     class BranchDetails
     {
         private string branchcode;
-        private int address_Id;
+        private string code_Posti;
         private string branchname;
 
         public string Branchcode { get => branchcode; set => branchcode = value; }
-        public int Address_Id { get => address_Id; set => address_Id = value; }
+        public string Code_Posti { get => code_Posti; set => code_Posti = value; }
         public string Branchname { get => branchname; set => branchname = value; }
     }
 }

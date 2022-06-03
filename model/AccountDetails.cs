@@ -21,6 +21,25 @@ namespace BankMekllat.datamodels
         private int profitPercentage;
         private long balance;
 
+        public AccountDetails(string accountNumber,string bankerNationalCode,string customerNationalCode,int branchCode,
+            string cardnumber,string shebaaccountnumber,string firstpass, string secondpass,int accountType,string accountOpenningDate,
+            int profitPercentage,long balance)
+        {
+            this.accountNumber = accountNumber;
+            this.bankerNationalCode = bankerNationalCode;
+            this.customerNationalCode = customerNationalCode;
+            this.branchcode = branchCode;
+            this.cardnumber = cardnumber;
+            this.shebaaccountnumber = shebaaccountnumber;
+            this.firstpass = firstpass;
+            this.secondpass = secondpass;
+            this.accountType = accountType;
+            this.accountOpenningDate = accountOpenningDate;
+            this.profitPercentage = profitPercentage;
+            this.balance = balance;
+        }
+        public AccountDetails(){  }
+
         public string AccountNumber { get => accountNumber; set => accountNumber = value; }
         public string BankerNationalCode { get => bankerNationalCode; set => bankerNationalCode = value; }
         public string CustomerNationalCode { get => customerNationalCode; set => customerNationalCode = value; }

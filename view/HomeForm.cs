@@ -47,45 +47,84 @@ namespace BankMekllat.view
 
         private void Branches_list_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-                Branch branch = branches[branches_list.SelectedIndex];
+
+            if (branches_list.SelectedIndex == -1)
+            {
+                info_lbl.Text = "";
+            }
+            else
+            {    Branch branch = branches[branches_list.SelectedIndex];
                 info_lbl.Text = "Branch:\n" + branch.BranchDetails.Branchname + "\n" + branch.BranchDetails.Branchcode +
                     "\n\n" + branch.Address.ToString();
            
-           
-            
+
+            }
+                
+          
          
         }
 
         private void Bankers_list_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            Banker banker = bankers[Bankers_list.SelectedIndex];
+            if (Bankers_list.SelectedIndex == -1)
+            {
+                info_lbl.Text = "";
+            }
+            else
+            {
+                Banker banker = bankers[Bankers_list.SelectedIndex];
             info_lbl.Text = banker.BankerDetails.ToString();
             
             info_lbl.Text += "\n\n" + banker.Address.ToString();
+
+            }
+            
 
         }
 
         private void Accounts_list_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Account account = accounts[Accounts_list.SelectedIndex];
-            info_lbl.Text = "Account:\n" + account.AccountDetails.AccountNumber + "\n" + account.AccountDetails.AccountOpenningDate +
-                "\n";
-            if (account.AccountDetails.AccountType == 0)
+            if (Accounts_list.SelectedIndex == -1)
             {
-                info_lbl.Text += "current account\n\n";
-            }else info_lbl.Text += "saving account\n\n";
+                info_lbl.Text = "";
+            }
+            else
+            {
+                Account account = accounts[Accounts_list.SelectedIndex];
+                info_lbl.Text = "Account:\n" + account.AccountDetails.AccountNumber + "\n" + account.AccountDetails.AccountOpenningDate +
+                    "\n";
+                if (account.AccountDetails.AccountType == 0)
+                {
+                    info_lbl.Text += "current account\n\n";
+                }
+                else info_lbl.Text += "saving account\n\n";
 
-            info_lbl.Text += account.Banker.ToString();
-            info_lbl.Text += "\n\n" + account.Customer.ToString();
+                info_lbl.Text += account.Banker.ToString();
+                info_lbl.Text += "\n\n" + account.Customer.ToString();
+            }
+           
         }
 
         private void Customers_list_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Customer customer = customers[Customers_list.SelectedIndex];
+            if (Customers_list.SelectedIndex == -1)
+            {
+                info_lbl.Text = "";
+            }
+            else
+            {
+             Customer customer = customers[Customers_list.SelectedIndex];
             info_lbl.Text = customer.CustomerDetails.ToString();
             info_lbl.Text += "\n\n" + customer.Address.ToString();
+            }
+           
+        }
+
+        private void Account_btn_Click(object sender, EventArgs e)
+        {
+            Add_Account add_Account = new Add_Account();
+            Close();
+            add_Account.Show();
         }
     }
 }

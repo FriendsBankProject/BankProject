@@ -10,7 +10,7 @@ namespace BankMekllat.datamodels
     {
         private string nationalCode;
         private int branchcode;
-        private int address_Id;
+        private string code_posti;
         private int position; // 0 is boss and 1 is employee !!!
         private string fname;
         private string birthdate;
@@ -22,7 +22,7 @@ namespace BankMekllat.datamodels
 
         public string NationalCode { get => nationalCode; set => nationalCode = value; }
         public int Branchcode { get => branchcode; set => branchcode = value; }
-        public int Address_Id { get => address_Id; set => address_Id = value; }
+        public string Code_Posti { get => code_posti; set => code_posti = value; }
         public int Position { get => position; set => position = value; }
         public string Fname { get => fname; set => fname = value; }
         public string Lname { get => Lname1; set => Lname1 = value; }

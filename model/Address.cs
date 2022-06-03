@@ -8,16 +8,22 @@ namespace BankMekllat.datamodels
 {
     class Address
     {
-        private int id;
+        private string code_posti;
         private string city;
         private string street;
         private string info;
-        private string code_posti;
-
-        public int Id
+        
+        public Address(string code_posti,string city,string street, string info)
         {
-            set => id = value;
-            get => id;
+            this.code_posti = code_posti;
+            this.city = city;
+            this.street = street;
+            this.info = info;
+        }
+
+        public Address()
+        {
+
         }
 
         public string City

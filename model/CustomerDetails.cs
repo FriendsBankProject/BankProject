@@ -9,7 +9,7 @@ namespace BankMekllat.datamodels
     class CustomerDetails
     {
         private string nationalCode;
-        private int address_Id;
+        private string code_Posti;
         private string fname;
         private string lname;
         private string birthdate;
@@ -19,8 +19,29 @@ namespace BankMekllat.datamodels
         private bool gender; // true is male and false is female !!!!
         private string phoneNumber;
 
+         public CustomerDetails(string nationalCode,string code_Posti,string fname,string lname,string birthdate,string fatherName
+             ,string education , string job,bool gender, string phoneNumber)
+        {
+            this.nationalCode = nationalCode;
+            this.code_Posti = code_Posti;
+            this.fname = fname;
+            this.lname = lname;
+            this.birthdate = birthdate;
+            this.fatherName = fatherName;
+            this.education = education;
+            this.job = job;
+            this.gender = gender;
+            this.phoneNumber = phoneNumber;
+        }
+
+        public CustomerDetails()
+        {
+
+        }
+
+
         public string NationalCode { get => nationalCode; set => nationalCode = value; }
-        public int Address_Id { get => address_Id; set => address_Id = value; }
+        public string Code_Posti { get => code_Posti; set => code_Posti = value; }
         public string Fname { get => fname; set => fname = value; }
         public string Lname { get => lname; set => lname = value; }
         public string Birthdate { get => birthdate; set => birthdate = value; }

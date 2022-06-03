@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BankMekllat.controller;
+using BankMekllat.datamodels;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,44 @@ namespace BankMekllat.view
         public Add_Account()
         {
             InitializeComponent();
+        }
+
+        private void Btn_Submit_Click(object sender, EventArgs e)
+        {
+            DatabaseResult result;
+            DatabaseManager databaseManager = DatabaseManager.getInstance();
+            Address address = new Address(code_posti_txt.Text,City_txt.Text,street_txt.Text,info_txt.Text);
+           result = databaseManager.addAddress(address);
+            if (!result.Result)
+            {
+                MessageBox.Show(result.Error, "error while adding address", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
+            }
+            else
+            {
+                CustomerDetails customer = new CustomerDetails(txt_CustomerNational.Text, code_posti_txt.Text, txt_FName.Text,
+                    txt_LName.Text, txt_BirthDate.Text, txt_FatherName.Text, txt_Education.Text, txt_Job.Text, combo_gender.SelectedIndex == 0, txt_PhoneNum.Text);
+                 
+                result = databaseManager.addCustomer(customer);
+                if (!result.Result)
+                {
+                    MessageBox.Show(result.Error, "error while adding customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    
+                }
+                else
+                {
+                    AccountDetails accountDetails = new AccountDetails(txt_AccountNum.Text, txt_BankerCode.Text, txt_CustomerNational.Text,
+                        Convert.ToInt32(txt_BranchCode.Text), txt_CardNum.Text, txt_Sheba.Text, txt_FirstPass.Text, txt_SecondPass.Text
+                        , Convert.ToInt32(lbl_AccType.Text), txt_OpeningDate.Text, Convert.ToInt32(txt_Profit.Text), Convert.ToInt64(txt_Balance.Text));
+                    result = databaseManager.addAccount(accountDetails);
+                    if (!result.Result)
+                    {
+                        MessageBox.Show(result.Error, "error while adding customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        
+                    }
+                    else MessageBox.Show("all done ");
+                }
+            }
         }
     }
 }

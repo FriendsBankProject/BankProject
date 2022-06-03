@@ -66,7 +66,7 @@ namespace BankMekllat.controller
 
         public DatabaseResult updateAddress(Address address)
         {
-            string sql = "update address set city='" + address.City + "',street='" + address.Street + "',info='" + address.Info + "',code_posti='" + address.Code_Posti + "' where id=" + address.Id.ToString();
+            string sql = "update address set city='" + address.City + "',street='" + address.Street + "',info='" + address.Info + "' where code_posti='" + address.Code_Posti + "'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
             {
@@ -83,9 +83,9 @@ namespace BankMekllat.controller
 
         }
 
-        public DatabaseResult deleteAddress(int id)
+        public DatabaseResult deleteAddress(string code_posti)
         {
-            string sql = "delete from address where id=" + id.ToString();
+            string sql = "delete from address where code_posti='" + code_posti + "'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
             {
@@ -108,7 +108,7 @@ namespace BankMekllat.controller
         //branch *****************************
         public DatabaseResult addBranch(BranchDetails branch)
         {
-            string sql = "insert into branch values('" + branch.Branchcode + "','" + branch.Address_Id + "','" + branch.Branchname + "')";
+            string sql = "insert into branch values('" + branch.Branchcode + "','" + branch.Code_Posti+ "','" + branch.Branchname + "')";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
             {
@@ -127,7 +127,7 @@ namespace BankMekllat.controller
 
         public DatabaseResult updateBranch(BranchDetails branch)
         {
-            string sql = "update branch set address_id='" + branch.Address_Id +
+            string sql = "update branch set address_id='" + branch.Code_Posti +
                 "',branchname ='" + branch.Branchname + "' where branchcode= '"
                 +branch.Branchcode+"'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -166,7 +166,7 @@ namespace BankMekllat.controller
         public List<Branch>  GetBranches()
         {
             string sql = "select branch.branchcode , branch.branchname , address.* from branch left join address on " +
-                "branch.address_id=address.id";
+                "branch.code_posti=address.code_posti";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
             {
@@ -184,11 +184,11 @@ namespace BankMekllat.controller
                     branchDetails.Branchcode = reader.GetString(0);
                     branchDetails.Branchname = reader.GetString(1);
 
-                    address.Id = reader.GetInt32(2);
+                    address.Code_Posti = reader.GetString(2);
                     address.City = reader.GetString(3);
                     address.Street = reader.GetString(4);
                     address.Info = reader.GetString(5);
-                    address.Code_Posti = reader.GetString(6);
+                    
 
                     branchs.Add(new Branch(branchDetails, address));
 
@@ -214,7 +214,7 @@ namespace BankMekllat.controller
             }
             else gender = 0;
             string sql = "insert into banker values('" + banker.NationalCode + "','" + banker.Branchcode +
-                "','" + banker.Address_Id+"','"+banker.Position+"','"+banker.Fname+"','"+banker.Lname+"','"+ banker.Birthdate
+                "','" + banker.Code_Posti+"','"+banker.Position+"','"+banker.Fname+"','"+banker.Lname+"','"+ banker.Birthdate
                 + "','"+ banker.Fathername+"','"+banker.Education+"',"+gender+",'"+banker.PhoneNumber+ "')";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
@@ -240,7 +240,7 @@ namespace BankMekllat.controller
             }
             else gender = 0;
             string sql = "update banker set branchcode='" + banker.Branchcode +
-                "',address_id='" + banker.Address_Id + "',position='" + banker.Position + "',fname='" + banker.Fname + "',lname='" + banker.Lname + 
+                "',address_id='" + banker.Code_Posti + "',position='" + banker.Position + "',fname='" + banker.Fname + "',lname='" + banker.Lname + 
                 "',birthdate='" + banker.Birthdate
                 + "',fathername='" + banker.Fathername + "',education='" + banker.Education + "',gender=" + gender + ",phonenumber='" + banker.PhoneNumber +
                 "' where nationalcode='"+banker.NationalCode+"'";
@@ -281,7 +281,7 @@ namespace BankMekllat.controller
         public List<Banker> GetBankers()
         {
             string sql = "select banker.* , branch.branchcode , branch.branchname , address.* from banker , branch , address where" +
-            " banker.address_id=address.id and banker.branchcode=branch.branchcode"; 
+            " banker.code_posti=address.code_posti and banker.branchcode=branch.branchcode"; 
            
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 try
@@ -313,11 +313,11 @@ namespace BankMekllat.controller
                         branchDetails.Branchcode = reader.GetString(11);
                         branchDetails.Branchname = reader.GetString(12);
 
-                        address.Id = reader.GetInt32(13);
+                        address.Code_Posti = reader.GetString(13);
                         address.City = reader.GetString(14);
                         address.Street = reader.GetString(15);
                         address.Info = reader.GetString(16);
-                        address.Code_Posti = reader.GetString(17);
+                        
 
                         bankers.Add(new Banker(bankerDetails, branchDetails, address));
 
@@ -343,7 +343,7 @@ namespace BankMekllat.controller
             {
                 gender = 1;
             } else gender = 0;
-            string sql = "insert into customer values('" + customer.NationalCode + "','" + customer.Address_Id +
+            string sql = "insert into customer values('" + customer.NationalCode + "','" + customer.Code_Posti+
                 "','" + customer.Fname + "','" + customer.Lname + "','" + customer.Birthdate + "','" + customer.FatherName +
                 "','" + customer.Education + "','" + customer.Job + "'," + gender + ",'" + customer.PhoneNumber + "')";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -369,7 +369,7 @@ namespace BankMekllat.controller
                 gender = 1;
             }
             else gender = 0;
-            string sql = "update customer set address_id='" + customer.Address_Id + "',fname='" + customer.Fname +
+            string sql = "update customer set address_id='" + customer.Code_Posti + "',fname='" + customer.Fname +
                 "',lastname='" + customer.Lname + "',birthdate='" + customer.Birthdate + "',fathername='" + customer.FatherName +
                 "',education='" + customer.Education + "',job='" + customer.Job + "',gender=" + gender + ",phonenumber=" + customer.PhoneNumber
                 + " where nationalcode='" + customer.NationalCode + "'";
@@ -408,7 +408,7 @@ namespace BankMekllat.controller
 
         public List<Customer> GetCustomers()
         {
-            string sql = "select * from customer , address where customer.address_id=address.id";
+            string sql = "select * from customer , address where customer.code_posti=address.code_posti";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
             {
@@ -424,7 +424,7 @@ namespace BankMekllat.controller
                     CustomerDetails customerDetails = new CustomerDetails();
 
                     customerDetails.NationalCode = reader.GetString(0);
-                    customerDetails.Address_Id = reader.GetInt32(1);
+                    customerDetails.Code_Posti = reader.GetString(1);
                     customerDetails.Fname = reader.GetString(2);
                     customerDetails.Lname = reader.GetString(3);
                     customerDetails.Birthdate = reader.GetDateTime(4).ToString();
@@ -434,11 +434,11 @@ namespace BankMekllat.controller
                     customerDetails.Gender = reader.GetInt16(8) == 1;
                     customerDetails.PhoneNumber = reader.GetString(9);
 
-                    address.Id = reader.GetInt32(10);
+                    address.Code_Posti = reader.GetString(10);
                     address.City = reader.GetString(11);
                     address.Street = reader.GetString(12);
                     address.Info = reader.GetString(13);
-                    address.Code_Posti = reader.GetString(14);
+                    
 
                     customers.Add(new Customer(customerDetails, address));
 
@@ -735,7 +735,7 @@ namespace BankMekllat.controller
 
                     bankerDetails.NationalCode = reader.GetString(12);
                     bankerDetails.Branchcode = reader.GetInt32(13);
-                    bankerDetails.Address_Id = reader.GetInt32(14);
+                    bankerDetails.Code_Posti = reader.GetString(14);
                     bankerDetails.Position = reader.GetInt32(15);
                     bankerDetails.Fname = reader.GetString(16);
                     bankerDetails.Lname = reader.GetString(17);
@@ -746,7 +746,7 @@ namespace BankMekllat.controller
                     bankerDetails.PhoneNumber = reader.GetString(22);
 
                     customerDetails.NationalCode = reader.GetString(23);
-                    customerDetails.Address_Id = reader.GetInt32(24);
+                    customerDetails.Code_Posti = reader.GetString(24);
                     customerDetails.Fname = reader.GetString(25);
                     customerDetails.Lname = reader.GetString(26);
                     customerDetails.Birthdate = reader.GetDateTime(27).ToString();

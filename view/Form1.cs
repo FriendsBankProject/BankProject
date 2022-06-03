@@ -23,19 +23,17 @@ namespace BankMekllat
         {
             DatabaseManager database = DatabaseManager.getInstance();
             database.connect("1380saeed.");
-            Customer customer = new Customer();
-            customer.Fname = "mahammgsad";
-            customer.Lname = "mahammagssgdi";
-            customer.FatherName = "asghargs";
-            customer.Address_Id = 2;
-            customer.Birthdate = new DateTime(2022, 2, 3).ToString("yyyy-MM-dd");
-            customer.Education = "diploma";
-            customer.Gender = true;
-            customer.NationalCode = "3980395466";
-            customer.PhoneNumber = "09189279189";
-            customer.Job = "mechanic";
-            customer.NationalCode = "3991005217";
-           DatabaseResult dr = database.addCustomer(customer);
+            Check check = new Check();
+            check.CheckNumber = "144";
+            check.CustomerNationalCode = "3991005217";
+            check.BranchCode = "1234";
+            check.AccountNumber = "1246";
+            check.CheckDate = new DateTime().ToString("yyyy-MM-dd");
+            check.ReciverName = "mohammad hamed";
+            check.ReciverNationalNumber = "3980395456";
+            check.ShebaAccountNumber = "134546465";
+            check.Amount = 12345000;
+           DatabaseResult dr = database.updateCheck(check);
             button1.Text = dr.Result.ToString();
             MessageBox.Show(dr.Error);
         }

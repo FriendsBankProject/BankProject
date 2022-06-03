@@ -13,7 +13,7 @@ namespace BankMekllat.datamodels
         private string accountNumber;
         private string customerNationalCode;
         private string shebaAccountNumber;
-        private DateTime checkDate;
+        private string checkDate;
         private long amount;
         private string reciverName;
         private string reciverNationalNumber;
@@ -23,7 +23,7 @@ namespace BankMekllat.datamodels
         public string AccountNumber { get => accountNumber; set => accountNumber = value; }
         public string CustomerNationalCode { get => customerNationalCode; set => customerNationalCode = value; }
         public string ShebaAccountNumber { get => shebaAccountNumber; set => shebaAccountNumber = value; }
-        public DateTime CheckDate { get => checkDate; set => checkDate = value; }
+        public string CheckDate { get => checkDate; set => checkDate = value; }
         public long Amount { get => amount; set => amount = value; }
         public string ReciverName { get => reciverName; set => reciverName = value; }
         public string ReciverNationalNumber { get => reciverNationalNumber; set => reciverNationalNumber = value; }

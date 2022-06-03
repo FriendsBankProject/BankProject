@@ -263,5 +263,92 @@ namespace BankMekllat.controller
                 return new DatabaseResult(false, ex.Message);
             }
         }
+
+        public DatabaseResult updateCustomer(Customer customer)
+        {
+            short gender;
+            if (customer.Gender)
+            {
+                gender = 1;
+            }
+            else gender = 0;
+            string sql = "update customer set address_id='" + customer.Address_Id + "',fname='" + customer.Fname +
+                "',lastname='" + customer.Lname + "',birthdate='" + customer.Birthdate + "',fathername='" + customer.FatherName +
+                "',education='" + customer.Education + "',job='" + customer.Job + "',gender=" + gender + ",phonenumber=" + customer.PhoneNumber
+                + " where nationalcode='" + customer.NationalCode + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        public DatabaseResult deleteCustomer(string nationalcode)
+        {
+            string sql = "delete from customer where nationalcode='" + nationalcode + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+        // customer *******************************************
+        // check *******************************************
+        public DatabaseResult addCheck(Check check)
+        {
+            string sql = "insert into _check values ('" + check.CheckNumber + "','" + check.BranchCode + "','" +
+                check.AccountNumber + "','" + check.CustomerNationalCode + "','" + check.ShebaAccountNumber + "','" +
+                check.CheckDate + "'," + check.Amount.ToString() + ",'" + check.ReciverName + "','" + check.ReciverNationalNumber + "')";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        public DatabaseResult updateCheck(Check check)
+        {
+            string sql = "update _check set branchcode='" + check.BranchCode + "',accountnumber='" + check.AccountNumber +
+                "',customernationalcode='" + check.CustomerNationalCode + "',shebaaccountnumber='" + check.ShebaAccountNumber +
+                "',checkdate='" + check.CheckDate + "',amount=" + check.Amount.ToString() + ",recivername='" + check.ReciverName +
+                "',recivernationalnumber='" + check.ReciverNationalNumber + "' where checknumber='" + check.CheckNumber + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
     }
 }

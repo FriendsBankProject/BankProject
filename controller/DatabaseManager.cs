@@ -552,6 +552,6 @@ namespace BankMekllat.controller
                 return new DatabaseResult(false, ex.Message);
             }
         }
-        // transaction ************************
+        // account ************************
     }
 }

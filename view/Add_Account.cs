@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace this_is_baba.forms
+namespace BankMekllat.view
 {
-    public partial class transaction : Form
+    public partial class Add_Account : Form
     {
-        public transaction()
+        public Add_Account()
         {
             InitializeComponent();
-        }
-
-        private void transaction_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

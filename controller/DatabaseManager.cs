@@ -1,10 +1,9 @@
-﻿using System;
+﻿
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using MySql.Data.MySqlClient;
 using BankMekllat.datamodels;
+using BankMekllat.model;
 
 namespace BankMekllat.controller
 {
@@ -13,7 +12,6 @@ namespace BankMekllat.controller
         private MySqlConnection conn;
         private string database = "Bank_Mellat";
         private string host = "localhost";
-        private string user = "root";
         private int port = 3306;
         private static DatabaseManager databaseManager;
         private DatabaseManager() { }
@@ -27,7 +25,7 @@ namespace BankMekllat.controller
             return databaseManager;
         }
 
-        public DatabaseResult connect(string pass)
+        public DatabaseResult connect(string user,string pass)
         {
             string connString = "Server=" + host + ";database="
                 + database + ";port=" + port + ";User Id=" + user
@@ -103,11 +101,12 @@ namespace BankMekllat.controller
             }
         }
 
+
         //address  ************************************
 
 
         //branch *****************************
-        public DatabaseResult addBranch(Branch branch)
+        public DatabaseResult addBranch(BranchDetails branch)
         {
             string sql = "insert into branch values('" + branch.Branchcode + "','" + branch.Address_Id + "','" + branch.Branchname + "')";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -126,7 +125,7 @@ namespace BankMekllat.controller
         }
 
 
-        public DatabaseResult updateBranch(Branch branch)
+        public DatabaseResult updateBranch(BranchDetails branch)
         {
             string sql = "update branch set address_id='" + branch.Address_Id +
                 "',branchname ='" + branch.Branchname + "' where branchcode= '"
@@ -161,6 +160,47 @@ namespace BankMekllat.controller
             catch (MySqlException ex)
             {
                 return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        public List<Branch>  GetBranches()
+        {
+            string sql = "select branch.branchcode , branch.branchname , address.* from branch left join address on " +
+                "branch.address_id=address.id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Branch> branchs = new List<Branch>();
+                while (reader.Read())
+                {
+                    BranchDetails branchDetails = new BranchDetails();
+                    
+                    Address address = new Address();
+
+                    branchDetails.Branchcode = reader.GetString(0);
+                    branchDetails.Branchname = reader.GetString(1);
+
+                    address.Id = reader.GetInt32(2);
+                    address.City = reader.GetString(3);
+                    address.Street = reader.GetString(4);
+                    address.Info = reader.GetString(5);
+                    address.Code_Posti = reader.GetString(6);
+
+                    branchs.Add(new Branch(branchDetails, address));
+
+                    
+                }
+                conn.Close();
+                return branchs;
+                
+            }
+            catch (MySqlException ex)
+            {
+                return null;
             }
         }
         // branch *******************************************

@@ -55,6 +55,7 @@
     <Compile Include="model\Account.cs" />
     <Compile Include="model\Address.cs" />
     <Compile Include="model\Banker.cs" />
+    <Compile Include="model\BranchDetails.cs" />
     <Compile Include="model\Branch.cs" />
     <Compile Include="model\Check.cs" />
     <Compile Include="model\Customer.cs" />
@@ -104,6 +105,12 @@
     <Compile Include="view\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\HomeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\HomeForm.Designer.cs">
+      <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\loan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +153,9 @@
     <EmbeddedResource Include="view\Form.resx" />
     <EmbeddedResource Include="view\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\HomeForm.resx">
+      <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\loan.resx">
       <DependentUpon>loan.cs</DependentUpon>

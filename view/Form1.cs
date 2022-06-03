@@ -22,7 +22,7 @@ namespace BankMekllat.view
            private void Login_btn_Click(object sender, EventArgs e)
         {
             DatabaseManager databaseManager = DatabaseManager.getInstance();
-            DatabaseResult result = databaseManager.connect("root", "1380saeed.");
+            DatabaseResult result = databaseManager.connect(username_txt.Text, pass_txt.Text);
             if (result.Result)
             {
                 MessageBox.Show("ok");

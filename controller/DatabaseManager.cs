@@ -205,7 +205,7 @@ namespace BankMekllat.controller
         }
         // branch *******************************************
 
-        public DatabaseResult addBanker(Banker banker)
+        public DatabaseResult addBanker(BankerDetails banker)
         {
             short gender;
             if (banker.Gender)
@@ -231,7 +231,7 @@ namespace BankMekllat.controller
             }
         }
 
-        public DatabaseResult updateBanker(Banker banker)
+        public DatabaseResult updateBanker(BankerDetails banker)
         {
             short gender;
             if (banker.Gender)
@@ -277,9 +277,66 @@ namespace BankMekllat.controller
             }
         }
 
+
+        public List<Banker> GetBankers()
+        {
+            string sql = "select banker.* , branch.branchcode , branch.branchname , address.* from banker , branch , address where" +
+            " banker.address_id=address.id and banker.branchcode=branch.branchcode"; 
+           
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                try
+                {
+                    conn.Open();
+                    cmd.Prepare();
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    List<Banker> bankers = new List<Banker>();
+                    while (reader.Read())
+                    {
+                    BankerDetails bankerDetails = new BankerDetails();
+                        BranchDetails branchDetails = new BranchDetails();
+
+                        Address address = new Address();
+
+                    bankerDetails.NationalCode = reader.GetString(0);
+                    bankerDetails.Branchcode = reader.GetInt32(1);
+                    bankerDetails.Position = reader.GetInt32(3);
+                    bankerDetails.Fname = reader.GetString(4);
+                    bankerDetails.Lname = reader.GetString(5);
+                    bankerDetails.Birthdate = reader.GetDateTime(6).ToString();
+                    bankerDetails.Fathername = reader.GetString(7);
+                    bankerDetails.Education = reader.GetString(8);
+                    bankerDetails.Gender = reader.GetInt16(9) == 1;
+                    bankerDetails.PhoneNumber = reader.GetString(10);
+
+
+                        branchDetails.Branchcode = reader.GetString(11);
+                        branchDetails.Branchname = reader.GetString(12);
+
+                        address.Id = reader.GetInt32(13);
+                        address.City = reader.GetString(14);
+                        address.Street = reader.GetString(15);
+                        address.Info = reader.GetString(16);
+                        address.Code_Posti = reader.GetString(17);
+
+                        bankers.Add(new Banker(bankerDetails, branchDetails, address));
+
+
+                    }
+                    conn.Close();
+                    return bankers;
+
+                }
+                catch (MySqlException ex)
+                {
+                    return null;
+                }
+            }
+        
+
         // banker ******************************************
 
-        public DatabaseResult addCustomer(Customer customer)
+        public DatabaseResult addCustomer(CustomerDetails customer)
         {
             short gender;
             if (customer.Gender)
@@ -304,7 +361,7 @@ namespace BankMekllat.controller
             }
         }
 
-        public DatabaseResult updateCustomer(Customer customer)
+        public DatabaseResult updateCustomer(CustomerDetails customer)
         {
             short gender;
             if (customer.Gender)
@@ -348,6 +405,55 @@ namespace BankMekllat.controller
                 return new DatabaseResult(false, ex.Message);
             }
         }
+
+        public List<Customer> GetCustomers()
+        {
+            string sql = "select * from customer , address where customer.address_id=address.id";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Customer> customers = new List<Customer>();
+                while (reader.Read())
+                {
+                  
+                    Address address = new Address();
+                    CustomerDetails customerDetails = new CustomerDetails();
+
+                    customerDetails.NationalCode = reader.GetString(0);
+                    customerDetails.Address_Id = reader.GetInt32(1);
+                    customerDetails.Fname = reader.GetString(2);
+                    customerDetails.Lname = reader.GetString(3);
+                    customerDetails.Birthdate = reader.GetDateTime(4).ToString();
+                    customerDetails.FatherName = reader.GetString(5);
+                    customerDetails.Education = reader.GetString(6);
+                    customerDetails.Job = reader.GetString(7);
+                    customerDetails.Gender = reader.GetInt16(8) == 1;
+                    customerDetails.PhoneNumber = reader.GetString(9);
+
+                    address.Id = reader.GetInt32(10);
+                    address.City = reader.GetString(11);
+                    address.Street = reader.GetString(12);
+                    address.Info = reader.GetString(13);
+                    address.Code_Posti = reader.GetString(14);
+
+                    customers.Add(new Customer(customerDetails, address));
+
+
+                }
+                conn.Close();
+                return customers;
+
+            }
+            catch (MySqlException ex)
+            {
+                return null;
+            }
+        }
+        
         // customer *******************************************
         // check *******************************************
         public DatabaseResult addCheck(Check check)
@@ -533,7 +639,7 @@ namespace BankMekllat.controller
         // transaction ************************
 
         //account *******************************
-        public DatabaseResult addAccount(Account account)
+        public DatabaseResult addAccount(AccountDetails account)
         {
             string sql = "insert into account values('" + account.AccountNumber + "','" + account.BankerNationalCode + "','" +
                 account.CustomerNationalCode + "','" + account.Branchcode + "','" + account.Cardnumber + "','" +
@@ -554,7 +660,7 @@ namespace BankMekllat.controller
             }
         }
 
-        public DatabaseResult updateAccount(Account account)
+        public DatabaseResult updateAccount(AccountDetails account)
         {
             string sql = "update account set bankernationalcode='"+ account.BankerNationalCode + "',customernationalcode='" +
                  account.CustomerNationalCode + "',branchcode='" + account.Branchcode + "',cardnumber='" + account.Cardnumber + "',shebaaccountnumber='" +
@@ -590,6 +696,83 @@ namespace BankMekllat.controller
             catch (MySqlException ex)
             {
                 return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        public List<Account> GetAccounts()
+        {
+            string sql = "select account.* , banker.* ,customer.* , branch.branchcode , branch.branchname from account , banker ,customer, branch , address where" +
+           " account.bankernationalcode=banker.nationalcode and account.branchcode=branch.branchcode and account.customernationalcode=customer.nationalcode";
+
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Account> accounts = new List<Account>();
+                while (reader.Read())
+                {
+                    AccountDetails accountDetails = new AccountDetails();
+                    BankerDetails bankerDetails = new BankerDetails();
+                    BranchDetails branchDetails = new BranchDetails();
+                    CustomerDetails customerDetails = new CustomerDetails();
+
+
+                    accountDetails.AccountNumber = reader.GetString(0);
+                    accountDetails.BankerNationalCode = reader.GetString(1);
+                    accountDetails.CustomerNationalCode = reader.GetString(2);
+                    accountDetails.Branchcode = reader.GetInt32(3);
+                    accountDetails.Cardnumber = reader.GetString(4);
+                    accountDetails.Shebaaccountnumber = reader.GetString(5);
+                    accountDetails.Firstpass = reader.GetString(6);
+                    accountDetails.Secondpass = reader.GetString(7);
+                    accountDetails.AccountType = reader.GetInt32(8);
+                    accountDetails.AccountOpenningDate = reader.GetDateTime(9).ToString();
+                    accountDetails.ProfitPercentage = reader.GetInt32(10);
+                    accountDetails.Balance = reader.GetInt64(11);
+
+                    bankerDetails.NationalCode = reader.GetString(12);
+                    bankerDetails.Branchcode = reader.GetInt32(13);
+                    bankerDetails.Address_Id = reader.GetInt32(14);
+                    bankerDetails.Position = reader.GetInt32(15);
+                    bankerDetails.Fname = reader.GetString(16);
+                    bankerDetails.Lname = reader.GetString(17);
+                    bankerDetails.Birthdate = reader.GetDateTime(18).ToString();
+                    bankerDetails.Fathername = reader.GetString(19);
+                    bankerDetails.Education = reader.GetString(20);
+                    bankerDetails.Gender = reader.GetInt16(21) == 1;
+                    bankerDetails.PhoneNumber = reader.GetString(22);
+
+                    customerDetails.NationalCode = reader.GetString(23);
+                    customerDetails.Address_Id = reader.GetInt32(24);
+                    customerDetails.Fname = reader.GetString(25);
+                    customerDetails.Lname = reader.GetString(26);
+                    customerDetails.Birthdate = reader.GetDateTime(27).ToString();
+                    customerDetails.FatherName = reader.GetString(28);
+                    customerDetails.Education = reader.GetString(29);
+                    customerDetails.Job = reader.GetString(30);
+                    customerDetails.Gender = reader.GetInt16(31) == 1;
+                    customerDetails.PhoneNumber = reader.GetString(32);
+
+
+                    branchDetails.Branchcode = reader.GetString(33);
+                    branchDetails.Branchname = reader.GetString(34);
+
+                 
+
+                    accounts.Add(new Account(accountDetails,customerDetails, bankerDetails, branchDetails));
+
+
+                }
+                conn.Close();
+                return accounts;
+
+            }
+            catch (MySqlException ex)
+            {
+                return null;
             }
         }
         // account ************************

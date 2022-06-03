@@ -53,12 +53,15 @@
     <Compile Include="controller\DatabaseManager.cs" />
     <Compile Include="controller\DatabaseResult.cs" />
     <Compile Include="model\Account.cs" />
+    <Compile Include="model\AccountDetails.cs" />
     <Compile Include="model\Address.cs" />
     <Compile Include="model\Banker.cs" />
+    <Compile Include="model\BankerDetails.cs" />
     <Compile Include="model\BranchDetails.cs" />
     <Compile Include="model\Branch.cs" />
     <Compile Include="model\Check.cs" />
     <Compile Include="model\Customer.cs" />
+    <Compile Include="model\CustomerDetails.cs" />
     <Compile Include="model\Loan.cs" />
     <Compile Include="model\Transaction.cs" />
     <Compile Include="Program.cs" />

@@ -351,56 +351,6 @@ namespace BankMekllat.controller
             }
         }
 
-
-        public DatabaseResult updateCustomer(Customer customer)
-        {
-            short gender;
-            if (customer.Gender)
-            {
-                gender = 1;
-            }
-            else gender = 0;
-            string sql = "update customer set address_id='" + customer.Address_Id + "',fname='" + customer.Fname + "',lname='" +
-                "',birthdate='" + customer.Birthdate + "',fathername='" + customer.FatherName + "',education='" + customer.Education + "',job='" + customer.Job + "',gender='" +
-                gender + "',phonenumber='" + customer.PhoneNumber + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            try
-            {
-                conn.Open();
-                cmd.Prepare();
-                cmd.ExecuteScalar();
-                conn.Close();
-                return new DatabaseResult(true, "");
-            }
-            catch (MySqlException ex)
-            {
-                return new DatabaseResult(false, ex.Message);
-            }
-        }
-
-        public DatabaseResult deleteCustomer(string nationalcode)
-        {
-            string sql = "delete from customer where nationalcode='" + nationalcode + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, conn);
-            try
-            {
-                conn.Open();
-                cmd.Prepare();
-                cmd.ExecuteScalar();
-                conn.Close();
-                return new DatabaseResult(true, "");
-            }
-            catch (MySqlException ex)
-            {
-                return new DatabaseResult(false, ex.Message);
-            }
-        }
-
-
-        //customer***************************************************
-
-
-        
         
     }
 }

@@ -126,5 +126,11 @@ namespace BankMekllat.view
             Close();
             add_Account.Show();
         }
+
+        private void btn_AddAcc_Click(object sender, EventArgs e)
+        {
+            Add_Account add_Account = new Add_Account();
+            add_Account.Show();
+        }
     }
 }

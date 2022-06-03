@@ -52,14 +52,14 @@
   <ItemGroup>
     <Compile Include="controller\DatabaseManager.cs" />
     <Compile Include="controller\DatabaseResult.cs" />
-    <Compile Include="view\mode\Account.cs" />
-    <Compile Include="view\mode\Address.cs" />
-    <Compile Include="view\mode\Banker.cs" />
-    <Compile Include="view\mode\Branch.cs" />
-    <Compile Include="view\mode\Check.cs" />
-    <Compile Include="view\mode\Customer.cs" />
-    <Compile Include="view\mode\Loan.cs" />
-    <Compile Include="view\mode\Transaction.cs" />
+    <Compile Include="model\Account.cs" />
+    <Compile Include="model\Address.cs" />
+    <Compile Include="model\Banker.cs" />
+    <Compile Include="model\Branch.cs" />
+    <Compile Include="model\Check.cs" />
+    <Compile Include="model\Customer.cs" />
+    <Compile Include="model\Loan.cs" />
+    <Compile Include="model\Transaction.cs" />
     <Compile Include="view\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -33,7 +33,7 @@ namespace BankMekllat.view
             else
             {
                 CustomerDetails customer = new CustomerDetails(txt_CustomerNational.Text, code_posti_txt.Text, txt_FName.Text,
-                    txt_LName.Text, txt_BirthDate.Text, txt_FatherName.Text, txt_Education.Text, txt_Job.Text, combo_gender.SelectedIndex == 0, txt_PhoneNum.Text);
+                    txt_LName.Text, birthDate.Value.ToString("yyyy-MM-dd"), txt_FatherName.Text, txt_Education.Text, txt_Job.Text, combo_gender.SelectedIndex == 0, txt_PhoneNum.Text);
                  
                 result = databaseManager.addCustomer(customer);
                 if (!result.Result)
@@ -46,7 +46,7 @@ namespace BankMekllat.view
                 {
                     AccountDetails accountDetails = new AccountDetails(txt_AccountNum.Text, txt_BankerCode.Text, txt_CustomerNational.Text,
                         Convert.ToInt32(txt_BranchCode.Text), txt_CardNum.Text, txt_Sheba.Text, txt_FirstPass.Text, txt_SecondPass.Text
-                        , Convert.ToInt32(txt_AccType.Text), txt_OpeningDate.Text, Convert.ToInt32(txt_Profit.Text), long.Parse(txt_Balance.Text));
+                        , Convert.ToInt32(txt_AccType.Text), DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"), Convert.ToInt32(txt_Profit.Text), long.Parse(txt_Balance.Text));
                     result = databaseManager.addAccount(accountDetails);
                     if (!result.Result)
                     {

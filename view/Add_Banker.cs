@@ -33,16 +33,14 @@ namespace BankMekllat.view
                 }
                 else position = 1;
                 BankerDetails bankerDetails = new BankerDetails(txt_National.Text, Convert.ToInt16(txt_Branch.Text), code_posti_txt.Text,
-                    position, txt_Fname.Text, txt_Birth.Text, txt_Lname.Text, txt_Father.Text,
+                    position, txt_Fname.Text, birthDate.Value.ToString("yyyy-MM-dd"), txt_Lname.Text, txt_Father.Text,
                     txt_Education.Text, combo_Gender.SelectedText == "Male", txt_Phone.Text);
 
                 result = databaseManager.addBanker(bankerDetails);
                 if (result.Result)
                 {
                     MessageBox.Show("Banker Added Successfully  ");
-                    HomeForm form = new HomeForm();
-                    form.Show();
-                    Close();
+                   
                 }
                 else
                 {

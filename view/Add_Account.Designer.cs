@@ -36,7 +36,6 @@ namespace BankMekllat.view
             this.txt_Education = new System.Windows.Forms.TextBox();
             this.txt_PhoneNum = new System.Windows.Forms.TextBox();
             this.txt_CustomerNational = new System.Windows.Forms.TextBox();
-            this.txt_BirthDate = new System.Windows.Forms.TextBox();
             this.txt_FatherName = new System.Windows.Forms.TextBox();
             this.lbl_job = new System.Windows.Forms.Label();
             this.lbl_Education = new System.Windows.Forms.Label();
@@ -54,7 +53,6 @@ namespace BankMekllat.view
             this.txt_Balance = new System.Windows.Forms.TextBox();
             this.lbl_Balance = new System.Windows.Forms.Label();
             this.lbl_Profit = new System.Windows.Forms.Label();
-            this.lbl_openingdate = new System.Windows.Forms.Label();
             this.lbl_AccType = new System.Windows.Forms.Label();
             this.lbl_SecondPass = new System.Windows.Forms.Label();
             this.lbl_FirstPass = new System.Windows.Forms.Label();
@@ -66,7 +64,6 @@ namespace BankMekllat.view
             this.textBox21 = new System.Windows.Forms.TextBox();
             this.textBox20 = new System.Windows.Forms.TextBox();
             this.txt_Profit = new System.Windows.Forms.TextBox();
-            this.txt_OpeningDate = new System.Windows.Forms.TextBox();
             this.txt_AccType = new System.Windows.Forms.TextBox();
             this.txt_SecondPass = new System.Windows.Forms.TextBox();
             this.txt_FirstPass = new System.Windows.Forms.TextBox();
@@ -85,6 +82,7 @@ namespace BankMekllat.view
             this.label4 = new System.Windows.Forms.Label();
             this.street_txt = new System.Windows.Forms.TextBox();
             this.City_txt = new System.Windows.Forms.TextBox();
+            this.birthDate = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -94,13 +92,13 @@ namespace BankMekllat.view
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.birthDate);
             this.groupBox1.Controls.Add(this.lbl_Gender);
             this.groupBox1.Controls.Add(this.combo_gender);
             this.groupBox1.Controls.Add(this.txt_Job);
             this.groupBox1.Controls.Add(this.txt_Education);
             this.groupBox1.Controls.Add(this.txt_PhoneNum);
             this.groupBox1.Controls.Add(this.txt_CustomerNational);
-            this.groupBox1.Controls.Add(this.txt_BirthDate);
             this.groupBox1.Controls.Add(this.txt_FatherName);
             this.groupBox1.Controls.Add(this.lbl_job);
             this.groupBox1.Controls.Add(this.lbl_Education);
@@ -174,14 +172,6 @@ namespace BankMekllat.view
             this.txt_CustomerNational.Name = "txt_CustomerNational";
             this.txt_CustomerNational.Size = new System.Drawing.Size(101, 20);
             this.txt_CustomerNational.TabIndex = 13;
-            // 
-            // txt_BirthDate
-            // 
-            this.txt_BirthDate.Location = new System.Drawing.Point(374, 89);
-            this.txt_BirthDate.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_BirthDate.Name = "txt_BirthDate";
-            this.txt_BirthDate.Size = new System.Drawing.Size(115, 20);
-            this.txt_BirthDate.TabIndex = 12;
             // 
             // txt_FatherName
             // 
@@ -314,7 +304,6 @@ namespace BankMekllat.view
             this.groupBox2.Controls.Add(this.txt_Balance);
             this.groupBox2.Controls.Add(this.lbl_Balance);
             this.groupBox2.Controls.Add(this.lbl_Profit);
-            this.groupBox2.Controls.Add(this.lbl_openingdate);
             this.groupBox2.Controls.Add(this.lbl_AccType);
             this.groupBox2.Controls.Add(this.lbl_SecondPass);
             this.groupBox2.Controls.Add(this.lbl_FirstPass);
@@ -326,7 +315,6 @@ namespace BankMekllat.view
             this.groupBox2.Controls.Add(this.textBox21);
             this.groupBox2.Controls.Add(this.textBox20);
             this.groupBox2.Controls.Add(this.txt_Profit);
-            this.groupBox2.Controls.Add(this.txt_OpeningDate);
             this.groupBox2.Controls.Add(this.txt_AccType);
             this.groupBox2.Controls.Add(this.txt_SecondPass);
             this.groupBox2.Controls.Add(this.txt_FirstPass);
@@ -346,7 +334,7 @@ namespace BankMekllat.view
             // 
             // txt_Balance
             // 
-            this.txt_Balance.Location = new System.Drawing.Point(149, 250);
+            this.txt_Balance.Location = new System.Drawing.Point(133, 226);
             this.txt_Balance.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Balance.Name = "txt_Balance";
             this.txt_Balance.Size = new System.Drawing.Size(102, 20);
@@ -355,7 +343,7 @@ namespace BankMekllat.view
             // lbl_Balance
             // 
             this.lbl_Balance.AutoSize = true;
-            this.lbl_Balance.Location = new System.Drawing.Point(96, 253);
+            this.lbl_Balance.Location = new System.Drawing.Point(80, 229);
             this.lbl_Balance.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_Balance.Name = "lbl_Balance";
             this.lbl_Balance.Size = new System.Drawing.Size(49, 13);
@@ -371,16 +359,6 @@ namespace BankMekllat.view
             this.lbl_Profit.Size = new System.Drawing.Size(92, 13);
             this.lbl_Profit.TabIndex = 21;
             this.lbl_Profit.Text = "Profit Percentage:";
-            // 
-            // lbl_openingdate
-            // 
-            this.lbl_openingdate.AutoSize = true;
-            this.lbl_openingdate.Location = new System.Drawing.Point(70, 214);
-            this.lbl_openingdate.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lbl_openingdate.Name = "lbl_openingdate";
-            this.lbl_openingdate.Size = new System.Drawing.Size(76, 13);
-            this.lbl_openingdate.TabIndex = 20;
-            this.lbl_openingdate.Text = "Opening Date:";
             // 
             // lbl_AccType
             // 
@@ -485,14 +463,6 @@ namespace BankMekllat.view
             this.txt_Profit.Name = "txt_Profit";
             this.txt_Profit.Size = new System.Drawing.Size(102, 20);
             this.txt_Profit.TabIndex = 9;
-            // 
-            // txt_OpeningDate
-            // 
-            this.txt_OpeningDate.Location = new System.Drawing.Point(149, 212);
-            this.txt_OpeningDate.Margin = new System.Windows.Forms.Padding(2);
-            this.txt_OpeningDate.Name = "txt_OpeningDate";
-            this.txt_OpeningDate.Size = new System.Drawing.Size(102, 20);
-            this.txt_OpeningDate.TabIndex = 8;
             // 
             // txt_AccType
             // 
@@ -655,6 +625,13 @@ namespace BankMekllat.view
             this.City_txt.Size = new System.Drawing.Size(101, 20);
             this.City_txt.TabIndex = 13;
             // 
+            // birthDate
+            // 
+            this.birthDate.Location = new System.Drawing.Point(374, 86);
+            this.birthDate.Name = "birthDate";
+            this.birthDate.Size = new System.Drawing.Size(200, 20);
+            this.birthDate.TabIndex = 2;
+            // 
             // Add_Account
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -695,7 +672,6 @@ namespace BankMekllat.view
         private System.Windows.Forms.TextBox txt_Education;
         private System.Windows.Forms.TextBox txt_PhoneNum;
         private System.Windows.Forms.TextBox txt_CustomerNational;
-        private System.Windows.Forms.TextBox txt_BirthDate;
         private System.Windows.Forms.TextBox txt_FatherName;
         private System.Windows.Forms.Label lbl_job;
         private System.Windows.Forms.Label lbl_Education;
@@ -708,7 +684,6 @@ namespace BankMekllat.view
         private System.Windows.Forms.TextBox txt_Balance;
         private System.Windows.Forms.Label lbl_Balance;
         private System.Windows.Forms.Label lbl_Profit;
-        private System.Windows.Forms.Label lbl_openingdate;
         private System.Windows.Forms.Label lbl_AccType;
         private System.Windows.Forms.Label lbl_SecondPass;
         private System.Windows.Forms.Label lbl_FirstPass;
@@ -720,7 +695,6 @@ namespace BankMekllat.view
         private System.Windows.Forms.TextBox textBox21;
         private System.Windows.Forms.TextBox textBox20;
         private System.Windows.Forms.TextBox txt_Profit;
-        private System.Windows.Forms.TextBox txt_OpeningDate;
         private System.Windows.Forms.TextBox txt_AccType;
         private System.Windows.Forms.TextBox txt_SecondPass;
         private System.Windows.Forms.TextBox txt_FirstPass;
@@ -738,5 +712,6 @@ namespace BankMekllat.view
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox street_txt;
         private System.Windows.Forms.TextBox City_txt;
+        private System.Windows.Forms.DateTimePicker birthDate;
     }
 }

@@ -23,5 +23,21 @@ namespace BankMekllat.datamodels
         public long TransactionAmount { get => transactionAmount; set => transactionAmount = value; }
         public string TransactionDate { get => transactionDate; set => transactionDate = value; }
         public string DestenationCardNumber { get => destenationCardNumber; set => destenationCardNumber = value; }
+
+
+
+        public Transaction(int transactionnum, string customernational,string accountnum,int transactiontype, 
+            long transactionamount, string transactiondate,string destination)
+        {
+            this.transactionNumber = transactionnum;
+            this.customerNationalCode = customernational;
+            this.accountNumber = accountnum;
+            this.transactionType = transactiontype;
+            this.transactionAmount = transactionamount;
+            this.transactionDate = transactiondate;
+            this.destenationCardNumber = destination;
+        }
+
+        public Transaction() { }
     }
 }

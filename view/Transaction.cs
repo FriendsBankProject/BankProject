@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using BankMekllat.datamodels;
+using BankMekllat.controller;
+
 
 namespace BankMekllat.view
 {
@@ -15,6 +11,13 @@ namespace BankMekllat.view
         public Transaction()
         {
             InitializeComponent();
+        }
+
+        private void btn_submit_Click(object sender, EventArgs e)
+        {
+            DatabaseResult result;
+            DatabaseManager databaseManager = DatabaseManager.getInstance();
+            Transaction transaction = new Transaction();
         }
     }
 }

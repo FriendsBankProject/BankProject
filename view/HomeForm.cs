@@ -177,5 +177,10 @@ namespace BankMekllat.view
            
         }
 
+        private void transaction_btn_Click(object sender, EventArgs e)
+        {
+            Transaction transaction = new Transaction();
+            transaction.Show();
+        }
     }
 }

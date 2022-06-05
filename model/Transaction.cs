@@ -26,15 +26,13 @@ namespace BankMekllat.datamodels
 
 
 
-        public Transaction(int transactionnum, string customernational,string accountnum,int transactiontype, 
-            long transactionamount, string transactiondate,string destination)
+        public Transaction(int transactionnum, string customernational,string accountnum,
+            long transactionamount,string destination)
         {
             this.transactionNumber = transactionnum;
             this.customerNationalCode = customernational;
             this.accountNumber = accountnum;
-            this.transactionType = transactiontype;
             this.transactionAmount = transactionamount;
-            this.transactionDate = transactiondate;
             this.destenationCardNumber = destination;
         }
 

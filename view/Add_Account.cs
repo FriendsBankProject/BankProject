@@ -44,15 +44,10 @@ namespace BankMekllat.view
                 }
                 else
                 {
-                    int type;
-                    if (txt_AccType.Text == "current")
-                    {
-                        type = 0;
-                    }
-                    else type = 1;
+                    
                     AccountDetails accountDetails = new AccountDetails(txt_AccountNum.Text, txt_BankerCode.Text, txt_CustomerNational.Text,
                         Convert.ToInt32(txt_BranchCode.Text), txt_CardNum.Text, txt_Sheba.Text, txt_FirstPass.Text, txt_SecondPass.Text
-                        , type, DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"), Convert.ToInt32(txt_Profit.Text), long.Parse(txt_Balance.Text));
+                        , Convert.ToInt16(txt_AccType.Text), DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"), Convert.ToInt32(txt_Profit.Text), long.Parse(txt_Balance.Text));
                     result = databaseManager.addAccount(accountDetails);
                     if (!result.Result)
                     {

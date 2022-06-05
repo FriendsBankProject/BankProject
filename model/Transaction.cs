@@ -29,5 +29,6 @@ namespace BankMekllat.datamodels
         public long TransactionAmount { get => transactionAmount; set => transactionAmount = value; }
         public string TransactionDate { get => transactionDate; set => transactionDate = value; }
         public string DestenationCardNumber { get => destenationCardNumber; set => destenationCardNumber = value; }
+
     }
 }

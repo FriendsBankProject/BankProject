@@ -15,5 +15,13 @@ namespace BankMekllat.datamodels
         public string Branchcode { get => branchcode; set => branchcode = value; }
         public string Code_Posti { get => code_Posti; set => code_Posti = value; }
         public string Branchname { get => branchname; set => branchname = value; }
+
+        public BranchDetails(string branchcode , string code_posti, string branchname)
+        {
+            this.branchcode = branchcode;
+            this.code_Posti = code_posti;
+            this.branchname = branchname;
+        }
+        public BranchDetails() { }
     }
 }

@@ -42,5 +42,23 @@ namespace BankMekllat.datamodels
             else str += "Employee";
             return str;
         }
+
+        public BankerDetails(string nationalCode,int branchcode, string code_posti,int position , string fname, string birthdate, string lname , string fathername,
+            string education,bool gender,string phonenumber)
+        {
+            this.nationalCode = nationalCode;
+            this.branchcode = branchcode;
+            this.code_posti = code_posti;
+            this.position = position;
+            this.fname = fname;
+            this.birthdate = birthdate;
+            this.lname = lname;
+            this.fathername = fathername;
+            this.education = education;
+            this.gender = gender;
+            this.phoneNumber = phonenumber;
+        }
+
+        public BankerDetails() { }
     }
 }

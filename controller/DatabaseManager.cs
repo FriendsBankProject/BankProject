@@ -29,7 +29,7 @@ namespace BankMekllat.controller
         {
             string connString = "Server=" + host + ";database="
                 + database + ";port=" + port + ";User Id=" + user
-                + ";password=" + pass;
+                + ";password=" + pass + ";convert zero datetime=True";
             conn = new MySqlConnection(connString);
             try
             {

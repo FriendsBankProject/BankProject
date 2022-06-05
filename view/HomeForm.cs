@@ -132,5 +132,22 @@ namespace BankMekllat.view
             Add_Account add_Account = new Add_Account();
             add_Account.Show();
         }
+
+        private void branch_btn_Click(object sender, EventArgs e)
+        {
+            Add_Branch add_Branch = new Add_Branch();
+            add_Branch.Show();
+        }
+
+        private void banker_btn_Click(object sender, EventArgs e)
+        {
+            Add_Banker add_Banker = new Add_Banker();
+            add_Banker.Show();
+        }
+
+        private void exit_btn_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

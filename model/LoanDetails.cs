@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankMekllat.datamodels
 {
-    class Loan
+    class LoanDetails
     {
         private int loanNumber;
         private string loanGaruntor;
@@ -14,6 +14,17 @@ namespace BankMekllat.datamodels
         private long loanAmount;
         private string dueDate;
         private string bankerNationalCode;
+        
+        public LoanDetails(int loanNumber,string loanGurantor,string borrowerNationalCode,long loanAmount,
+            string dueDate,string bankerNationalCode)
+        {
+            this.loanNumber = loanNumber;
+            this.loanGaruntor = loanGurantor;
+            this.borrowerNationalCode = borrowerNationalCode;
+            this.loanAmount = loanAmount;
+            this.dueDate = dueDate;
+            this.bankerNationalCode = bankerNationalCode;
+        }
 
         public int LoanNumber { get => loanNumber; set => loanNumber = value; }
         public string LoanGaruntor { get => loanGaruntor; set => loanGaruntor = value; }

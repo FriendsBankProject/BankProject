@@ -151,6 +151,22 @@ namespace BankMekllat.view
             Application.Exit();
         }
 
+
+        private void Check_btn_Click(object sender, EventArgs e)
+        {
+            DatabaseManager.getInstance().FormIsRunning = true;
+            Check check = new Check();
+            check.Show();
+            Close();
+        }
+
+        private void Loan_btn_Click(object sender, EventArgs e)
+        {
+            DatabaseManager.getInstance().FormIsRunning = true;
+            LoanForm form = new LoanForm();
+            form.Show();
+            Close();
+        }
         private void HomeForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (DatabaseManager.getInstance().FormIsRunning == false)
@@ -161,6 +177,5 @@ namespace BankMekllat.view
            
         }
 
-       
     }
 }

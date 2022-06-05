@@ -59,10 +59,10 @@
     <Compile Include="model\BankerDetails.cs" />
     <Compile Include="model\BranchDetails.cs" />
     <Compile Include="model\Branch.cs" />
-    <Compile Include="model\Check.cs" />
+    <Compile Include="model\CheckDetails.cs" />
     <Compile Include="model\Customer.cs" />
     <Compile Include="model\CustomerDetails.cs" />
-    <Compile Include="model\Loan.cs" />
+    <Compile Include="model\LoanDetails.cs" />
     <Compile Include="model\Transaction.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -84,6 +84,12 @@
     <Compile Include="view\Add_Branch.Designer.cs">
       <DependentUpon>Add_Branch.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\Check.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\Check.Designer.cs">
+      <DependentUpon>Check.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,12 @@
     </Compile>
     <Compile Include="view\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\LoanForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\LoanForm.Designer.cs">
+      <DependentUpon>LoanForm.cs</DependentUpon>
     </Compile>
     <Compile Include="view\Transaction.cs">
       <SubType>Form</SubType>
@@ -120,12 +132,18 @@
     <EmbeddedResource Include="view\Add_Branch.resx">
       <DependentUpon>Add_Branch.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="view\Check.resx">
+      <DependentUpon>Check.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="view\Form.resx" />
     <EmbeddedResource Include="view\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\LoanForm.resx">
+      <DependentUpon>LoanForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Transaction.resx">
       <DependentUpon>Transaction.cs</DependentUpon>

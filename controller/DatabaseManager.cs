@@ -217,7 +217,7 @@ namespace BankMekllat.controller
                 return branchs;
                 
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
                 conn.Close();
                 return null;
@@ -350,7 +350,7 @@ namespace BankMekllat.controller
                     return bankers;
 
                 }
-                catch (MySqlException ex)
+                catch (MySqlException)
                 {
                 conn.Close();
                 return null;
@@ -475,7 +475,7 @@ namespace BankMekllat.controller
                 return customers;
 
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
                 conn.Close();
                 return null;
@@ -484,10 +484,10 @@ namespace BankMekllat.controller
         
         // customer *******************************************
         // check *******************************************
-        public DatabaseResult addCheck(Check check)
+        public DatabaseResult addCheck(CheckDetails check)
         {
             string sql = "insert into _check values ('" + check.CheckNumber + "','" + check.BranchCode + "','" +
-                check.AccountNumber + "','" + check.CustomerNationalCode + "','" + check.ShebaAccountNumber + "','" +
+                check.AccountNumber + "','" + check.CustomerNationalCode + "','"+
                 check.CheckDate + "'," + check.Amount.ToString() + ",'" + check.ReciverName + "','" + check.ReciverNationalNumber + "')";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
@@ -505,11 +505,10 @@ namespace BankMekllat.controller
             }
         }
 
-        public DatabaseResult updateCheck(Check check)
+        public DatabaseResult updateCheck(CheckDetails check)
         {
             string sql = "update _check set branchcode='" + check.BranchCode + "',accountnumber='" + check.AccountNumber +
-                "',customernationalcode='" + check.CustomerNationalCode + "',shebaaccountnumber='" + check.ShebaAccountNumber +
-                "',checkdate='" + check.CheckDate + "',amount=" + check.Amount.ToString() + ",recivername='" + check.ReciverName +
+                "',customernationalcode='" + check.CustomerNationalCode +"',checkdate='" + check.CheckDate + "',amount=" + check.Amount.ToString() + ",recivername='" + check.ReciverName +
                 "',recivernationalnumber='" + check.ReciverNationalNumber + "' where checknumber='" + check.CheckNumber + "'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
@@ -549,7 +548,7 @@ namespace BankMekllat.controller
 
        
         // loan ********************************************
-        public DatabaseResult addLoan(Loan loan)
+        public DatabaseResult addLoan(LoanDetails loan)
         {
             string sql = "insert into loan values(" + loan.LoanNumber.ToString() + ",'" + loan.LoanGaruntor + "','" +
                 loan.BorrowerNationalCode + "'," + loan.LoanAmount.ToString() + ",'" + loan.DueDate.ToString() + "','" +
@@ -570,7 +569,7 @@ namespace BankMekllat.controller
             }
         }
 
-        public DatabaseResult updateLoan(Loan loan)
+        public DatabaseResult updateLoan(LoanDetails loan)
         {
             string sql = "update loan set loanguarantor='" + loan.LoanGaruntor + "',borrowernationalcode='" +
                 loan.BorrowerNationalCode + "',loanamount=" + loan.LoanAmount.ToString() + ",duedate='" + loan.DueDate.ToString() + 
@@ -810,7 +809,7 @@ namespace BankMekllat.controller
                 return accounts;
 
             }
-            catch (MySqlException ex)
+            catch (MySqlException)
             {
                 conn.Close();
                 return null;

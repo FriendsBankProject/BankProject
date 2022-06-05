@@ -41,6 +41,8 @@
             this.branch_btn = new System.Windows.Forms.Button();
             this.banker_btn = new System.Windows.Forms.Button();
             this.exit_btn = new System.Windows.Forms.Button();
+            this.check_btn = new System.Windows.Forms.Button();
+            this.loan_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Bankers_list
@@ -163,11 +165,33 @@
             this.exit_btn.UseVisualStyleBackColor = true;
             this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
             // 
+            // check_btn
+            // 
+            this.check_btn.Location = new System.Drawing.Point(627, 275);
+            this.check_btn.Name = "check_btn";
+            this.check_btn.Size = new System.Drawing.Size(75, 23);
+            this.check_btn.TabIndex = 16;
+            this.check_btn.Text = "Check";
+            this.check_btn.UseVisualStyleBackColor = true;
+            this.check_btn.Click += new System.EventHandler(this.Check_btn_Click);
+            // 
+            // loan_btn
+            // 
+            this.loan_btn.Location = new System.Drawing.Point(627, 314);
+            this.loan_btn.Name = "loan_btn";
+            this.loan_btn.Size = new System.Drawing.Size(75, 23);
+            this.loan_btn.TabIndex = 17;
+            this.loan_btn.Text = "Loan";
+            this.loan_btn.UseVisualStyleBackColor = true;
+            this.loan_btn.Click += new System.EventHandler(this.Loan_btn_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 450);
+            this.Controls.Add(this.loan_btn);
+            this.Controls.Add(this.check_btn);
             this.Controls.Add(this.exit_btn);
             this.Controls.Add(this.banker_btn);
             this.Controls.Add(this.branch_btn);
@@ -205,5 +229,7 @@
         private System.Windows.Forms.Button branch_btn;
         private System.Windows.Forms.Button banker_btn;
         private System.Windows.Forms.Button exit_btn;
+        private System.Windows.Forms.Button check_btn;
+        private System.Windows.Forms.Button loan_btn;
     }
 }

@@ -40,7 +40,6 @@ namespace BankMekllat.view
                 if (result.Result)
                 {
                     MessageBox.Show("Banker Added Successfully  ");
-                   
                 }
                 else
                 {

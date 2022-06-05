@@ -16,7 +16,7 @@ namespace BankMekllat.controller
             this.error = error;
             this.result = result;
         }
-        public string Error { get => error;  }
+        public string Message { get => error;  }
         public bool Result { get => result; }
     }
 }

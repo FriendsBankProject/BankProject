@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace BankMekllat.view
 {
-    public partial class Check : Form
+    public partial class CheckForm : Form
     {
-        public Check()
+        public CheckForm()
         {
             InitializeComponent();
         }
@@ -30,7 +30,7 @@ namespace BankMekllat.view
             result = databaseManager.addCheck(check);
             if (!result.Result)
             {
-                MessageBox.Show(result.Error, "error while adding check", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(result.Message, "error while adding check", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             else

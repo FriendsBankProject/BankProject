@@ -1,7 +1,7 @@
 ﻿
 namespace BankMekllat.view
 {
-    partial class Add_Account
+    partial class Add_AccountForm
     {
         /// <summary>
         /// Required designer variable.

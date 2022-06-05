@@ -32,7 +32,7 @@ namespace BankMekllat.view
                 this.Hide();
 
             }
-            else MessageBox.Show(result.Error, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else MessageBox.Show(result.Message, "error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

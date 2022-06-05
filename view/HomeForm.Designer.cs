@@ -40,9 +40,9 @@
             this.account_btn = new System.Windows.Forms.Button();
             this.branch_btn = new System.Windows.Forms.Button();
             this.banker_btn = new System.Windows.Forms.Button();
-            this.exit_btn = new System.Windows.Forms.Button();
             this.check_btn = new System.Windows.Forms.Button();
             this.loan_btn = new System.Windows.Forms.Button();
+            this.transaction_txt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Bankers_list
@@ -155,16 +155,6 @@
             this.banker_btn.UseVisualStyleBackColor = true;
             this.banker_btn.Click += new System.EventHandler(this.banker_btn_Click);
             // 
-            // exit_btn
-            // 
-            this.exit_btn.Location = new System.Drawing.Point(731, 393);
-            this.exit_btn.Name = "exit_btn";
-            this.exit_btn.Size = new System.Drawing.Size(75, 23);
-            this.exit_btn.TabIndex = 15;
-            this.exit_btn.Text = "Exit";
-            this.exit_btn.UseVisualStyleBackColor = true;
-            this.exit_btn.Click += new System.EventHandler(this.exit_btn_Click);
-            // 
             // check_btn
             // 
             this.check_btn.Location = new System.Drawing.Point(627, 275);
@@ -185,14 +175,24 @@
             this.loan_btn.UseVisualStyleBackColor = true;
             this.loan_btn.Click += new System.EventHandler(this.Loan_btn_Click);
             // 
+            // transaction_txt
+            // 
+            this.transaction_txt.Location = new System.Drawing.Point(627, 353);
+            this.transaction_txt.Name = "transaction_txt";
+            this.transaction_txt.Size = new System.Drawing.Size(75, 23);
+            this.transaction_txt.TabIndex = 18;
+            this.transaction_txt.Text = "Transaction";
+            this.transaction_txt.UseVisualStyleBackColor = true;
+            this.transaction_txt.Click += new System.EventHandler(this.Transaction_txt_Click);
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(826, 450);
+            this.Controls.Add(this.transaction_txt);
             this.Controls.Add(this.loan_btn);
             this.Controls.Add(this.check_btn);
-            this.Controls.Add(this.exit_btn);
             this.Controls.Add(this.banker_btn);
             this.Controls.Add(this.branch_btn);
             this.Controls.Add(this.account_btn);
@@ -228,8 +228,8 @@
         private System.Windows.Forms.Button account_btn;
         private System.Windows.Forms.Button branch_btn;
         private System.Windows.Forms.Button banker_btn;
-        private System.Windows.Forms.Button exit_btn;
         private System.Windows.Forms.Button check_btn;
         private System.Windows.Forms.Button loan_btn;
+        private System.Windows.Forms.Button transaction_txt;
     }
 }

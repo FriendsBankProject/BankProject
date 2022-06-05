@@ -30,7 +30,7 @@ namespace BankMekllat.view
             result = databaseManager.addLoan(loan);
             if (!result.Result)
             {
-                MessageBox.Show(result.Error, "error while adding loan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(result.Message, "error while adding loan", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {

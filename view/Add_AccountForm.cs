@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace BankMekllat.view
 {
-    public partial class Add_Account : Form
+    public partial class Add_AccountForm : Form
     {
-        public Add_Account()
+        public Add_AccountForm()
         {
             InitializeComponent();
         }
@@ -27,7 +27,7 @@ namespace BankMekllat.view
            result = databaseManager.addAddress(address);
             if (!result.Result)
             {
-                MessageBox.Show(result.Error, "error while adding address", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(result.Message, "error while adding address", MessageBoxButtons.OK, MessageBoxIcon.Error);
                
             }
             else
@@ -39,7 +39,7 @@ namespace BankMekllat.view
                 if (!result.Result)
                 {
                     databaseManager.deleteAddress(code_posti_txt.Text);
-                    MessageBox.Show(result.Error, "error while adding customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(result.Message, "error while adding customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     
                 }
                 else
@@ -52,7 +52,7 @@ namespace BankMekllat.view
                     {
                         databaseManager.deleteCustomer(txt_CustomerNational.Text);
                         databaseManager.deleteAddress(code_posti_txt.Text);
-                        MessageBox.Show(result.Error, "error while adding customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(result.Message, "error while adding customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         
                     }
                     else MessageBox.Show("all done ");

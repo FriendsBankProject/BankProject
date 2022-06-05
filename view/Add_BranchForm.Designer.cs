@@ -1,7 +1,7 @@
 ﻿
 namespace BankMekllat.view
 {
-    partial class Add_Branch
+    partial class Add_BranchForm
     {
         /// <summary>
         /// Required designer variable.

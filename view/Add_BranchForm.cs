@@ -5,9 +5,9 @@ using BankMekllat.datamodels;
 
 namespace BankMekllat.view
 {
-    public partial class Add_Branch : Form
+    public partial class Add_BranchForm : Form
     {
-        public Add_Branch()
+        public Add_BranchForm()
         {
             InitializeComponent();
         }
@@ -20,7 +20,7 @@ namespace BankMekllat.view
             result = databaseManager.addAddress(address);
             if (!result.Result)
             {
-                MessageBox.Show(result.Error, "error while adding address", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(result.Message, "error while adding address", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
             else
@@ -37,7 +37,7 @@ namespace BankMekllat.view
             else
                 {
                     databaseManager.deleteAddress(code_posti_txt.Text);
-                    MessageBox.Show(result.Error, "error while adding branch", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(result.Message, "error while adding branch", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
            

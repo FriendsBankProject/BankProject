@@ -123,7 +123,7 @@ namespace BankMekllat.view
         private void Account_btn_Click(object sender, EventArgs e)
         {
             DatabaseManager.getInstance().FormIsRunning = true;
-            Add_Account add_Account = new Add_Account();
+            Add_AccountForm add_Account = new Add_AccountForm();
             Close();
             add_Account.Show();
         }
@@ -133,7 +133,7 @@ namespace BankMekllat.view
         private void branch_btn_Click(object sender, EventArgs e)
         {
             DatabaseManager.getInstance().FormIsRunning = true;
-            Add_Branch add_Branch = new Add_Branch();
+            Add_BranchForm add_Branch = new Add_BranchForm();
             add_Branch.Show();
             Close();
         }
@@ -141,21 +141,17 @@ namespace BankMekllat.view
         private void banker_btn_Click(object sender, EventArgs e)
         {
             DatabaseManager.getInstance().FormIsRunning = true;
-            Add_Banker add_Banker = new Add_Banker();
+            Add_BankerForm add_Banker = new Add_BankerForm();
             add_Banker.Show();
             Close();
         }
 
-        private void exit_btn_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-
+       
+        
         private void Check_btn_Click(object sender, EventArgs e)
         {
             DatabaseManager.getInstance().FormIsRunning = true;
-            Check check = new Check();
+            CheckForm check = new CheckForm();
             check.Show();
             Close();
         }
@@ -164,6 +160,14 @@ namespace BankMekllat.view
         {
             DatabaseManager.getInstance().FormIsRunning = true;
             LoanForm form = new LoanForm();
+            form.Show();
+            Close();
+        }
+
+        private void Transaction_txt_Click(object sender, EventArgs e)
+        {
+            DatabaseManager.getInstance().FormIsRunning = true;
+            TransactionForm form = new TransactionForm();
             form.Show();
             Close();
         }
@@ -177,5 +181,6 @@ namespace BankMekllat.view
            
         }
 
+       
     }
 }

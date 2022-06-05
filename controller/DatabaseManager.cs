@@ -5,6 +5,7 @@ using MySql.Data.MySqlClient;
 using BankMekllat.datamodels;
 using BankMekllat.model;
 using System.Windows.Forms;
+using System;
 
 namespace BankMekllat.controller
 {
@@ -614,17 +615,17 @@ namespace BankMekllat.controller
         //transaction *******************************
         public DatabaseResult addTransaction(Transaction transaction)
         {
-            string sql = "insert into transaction values('" + transaction.TransactionNumber.ToString() + "','" + transaction.CustomerNationalCode + "','" +
-                transaction.AccountNumber + "','" + transaction.TransactionType + "','" + transaction.TransactionAmount + "','" +
+            string sql = "insert into transaction(accountnumber,transactionamount,transactiondate,destinationcardnumber) values('"  +
+                transaction.AccountNumber + "','"  + transaction.TransactionAmount + "','" +
                 transaction.TransactionDate+"','"+transaction.DestenationCardNumber + "')";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
             {
                 conn.Open();
                 cmd.Prepare();
-                cmd.ExecuteScalar();
+                var r = cmd.ExecuteReader();
                 conn.Close();
-                return new DatabaseResult(true, "");
+                return new DatabaseResult(true, getArrivalOfTransaction(transaction.AccountNumber,transaction.TransactionDate).Message);
             }
             catch (MySqlException ex)
             {
@@ -635,7 +636,7 @@ namespace BankMekllat.controller
 
         public DatabaseResult updateTransaction(Transaction transaction)
         {
-            string sql = "update transaction set customernationalcode='" + transaction.CustomerNationalCode + "',accountnumber='" +
+            string sql = "update transaction set accountnumber='" +
                 transaction.AccountNumber + "',transactionamount='" + transaction.TransactionAmount.ToString() + "',transactiondate='" + transaction.TransactionDate +
                 "',destinationcardnumber='" + transaction.DestenationCardNumber + "' where transactionnumber ='" + transaction.TransactionNumber.ToString() + "'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -665,6 +666,138 @@ namespace BankMekllat.controller
                 cmd.ExecuteScalar();
                 conn.Close();
                 return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                conn.Close();
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        public CustomerDetails GetCustomerByCardNumber(string cardNumber)
+        {
+            string sql = "select nationalcode,fname,lname from customer join account " +
+                "on customer.nationalcode=account.customernationalcode and account.cardnumber='" + cardNumber + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                CustomerDetails customer = new CustomerDetails();
+                customer.NationalCode = reader.GetString(0);
+                customer.Fname = reader.GetString(1);
+                customer.Lname = reader.GetString(2);
+                
+                conn.Close();
+                return customer;
+            }
+            catch (MySqlException)
+            {
+                conn.Close();
+                return null;
+            }
+        }
+        public DatabaseResult getBalance(string accountnumber)
+        {
+            string sql = "select balance from account where accountnumber='" + accountnumber + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                long balance = (long)cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, balance.ToString());
+            }
+            catch (MySqlException ex)
+            {
+                conn.Close();
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+        public DatabaseResult DecreaseBlance(string accountnumber,long amount)
+        {
+            DatabaseResult balanceResult = getBalance(accountnumber);
+            if (balanceResult.Result)
+            {
+                long balance = long.Parse(balanceResult.Message);
+                if (balance - amount >= 5000)
+                {
+                     string sql = "update account set balance = balance -'" + amount.ToString() +
+                "' where accountnumber='" + accountnumber + "'";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    try
+                    {
+                        conn.Open();
+                        cmd.Prepare();
+                        cmd.ExecuteScalar();
+                        conn.Close();
+                        return new DatabaseResult(true, "");
+                    }
+                    catch (MySqlException ex)
+                    {
+                        conn.Close();
+                        return new DatabaseResult(false, ex.Message);
+                    }
+                }
+                else
+                {
+                    return new DatabaseResult(false, "there is no enogh balance!!");
+                }
+            }
+            else
+            {
+                return balanceResult;
+            }
+            
+        }
+
+        public DatabaseResult IncreaseBlance(string cardNumber, long amount)
+        {
+            
+         string sql = "update account set balance = balance +'" + amount.ToString() +
+               "' where cardnumber='" + cardNumber + "'";
+                    MySqlCommand cmd = new MySqlCommand(sql, conn);
+                    try
+                    {
+                        conn.Open();
+                        cmd.Prepare();
+                        cmd.ExecuteScalar();
+                        conn.Close();
+                        return new DatabaseResult(true, "");
+                    }
+                    catch (MySqlException ex)
+                    {
+                        conn.Close();
+                        return new DatabaseResult(false, ex.Message);
+                    }
+               
+        }
+
+        public DatabaseResult getArrivalOfTransaction(string accountNumber , string date)
+        {
+            string sql = "select transaction.*,customer.fname,customer.lname from transaction,customer,account " +
+                " where transaction.accountnumber='" + accountNumber + "' and transaction.transactiondate='" + date +
+                "' and transaction.accountnumber=account.accountnumber and account.customernationalcode=customer.nationalcode";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                reader.Read();
+                string result = "";
+                result += "transaction number :" + reader.GetInt32(0).ToString();
+                result += "\naccount number :" + reader.GetString(1);
+                result += "\n" + reader.GetString(5) + "  " + reader.GetString(6);
+                result += "\nammount :" + reader.GetInt64(2);
+                result += "\ndate :" + reader.GetDateTime(3).ToString("yyyy-MM-dd HH:mm:ss");
+                result += "\ndestination card number :" + reader.GetString(4);
+
+                conn.Close();
+                return new DatabaseResult(true, result);
             }
             catch (MySqlException ex)
             {

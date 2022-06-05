@@ -1,6 +1,6 @@
 ﻿namespace BankMekllat.view
 {
-    partial class Check
+    partial class CheckForm
     {
         /// <summary>
         /// Required designer variable.

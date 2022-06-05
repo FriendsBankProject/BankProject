@@ -122,32 +122,45 @@ namespace BankMekllat.view
 
         private void Account_btn_Click(object sender, EventArgs e)
         {
+            DatabaseManager.getInstance().FormIsRunning = true;
             Add_Account add_Account = new Add_Account();
             Close();
             add_Account.Show();
         }
 
-        private void btn_AddAcc_Click(object sender, EventArgs e)
-        {
-            Add_Account add_Account = new Add_Account();
-            add_Account.Show();
-        }
+  
 
         private void branch_btn_Click(object sender, EventArgs e)
         {
+            DatabaseManager.getInstance().FormIsRunning = true;
             Add_Branch add_Branch = new Add_Branch();
             add_Branch.Show();
+            Close();
         }
 
         private void banker_btn_Click(object sender, EventArgs e)
         {
+            DatabaseManager.getInstance().FormIsRunning = true;
             Add_Banker add_Banker = new Add_Banker();
             add_Banker.Show();
+            Close();
         }
 
         private void exit_btn_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
+
+        private void HomeForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (DatabaseManager.getInstance().FormIsRunning == false)
+            {
+            MessageBox.Show("Good life :)");
+            DatabaseManager.getInstance().closeProgram();
+            }
+           
+        }
+
+       
     }
 }

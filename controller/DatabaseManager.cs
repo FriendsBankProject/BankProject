@@ -4,16 +4,22 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using BankMekllat.datamodels;
 using BankMekllat.model;
+using System.Windows.Forms;
 
 namespace BankMekllat.controller
 {
     class DatabaseManager
     {
+        private Form mainForm;
+        private bool formIsRunning;
         private MySqlConnection conn;
         private string database = "Bank_Mellat";
         private string host = "localhost";
         private int port = 3306;
         private static DatabaseManager databaseManager;
+
+        public bool FormIsRunning { get => formIsRunning; set => formIsRunning = value; }
+
         private DatabaseManager() { }
 
         public static DatabaseManager getInstance()
@@ -25,8 +31,9 @@ namespace BankMekllat.controller
             return databaseManager;
         }
 
-        public DatabaseResult connect(string user,string pass)
+        public DatabaseResult connect(Form mainForm,string user,string pass)
         {
+            this.mainForm = mainForm;
             string connString = "Server=" + host + ";database="
                 + database + ";port=" + port + ";User Id=" + user
                 + ";password=" + pass + ";convert zero datetime=True";
@@ -39,8 +46,14 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
+        }
+
+        public void closeProgram()
+        {
+            mainForm.Close();
         }
 
         //address *************************************
@@ -59,6 +72,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
 
@@ -78,6 +92,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
 
@@ -97,6 +112,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -120,6 +136,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -141,6 +158,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -159,6 +177,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -200,6 +219,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return null;
             }
         }
@@ -227,6 +247,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -255,6 +276,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -273,6 +295,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -329,7 +352,8 @@ namespace BankMekllat.controller
                 }
                 catch (MySqlException ex)
                 {
-                    return null;
+                conn.Close();
+                return null;
                 }
             }
         
@@ -357,6 +381,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -384,6 +409,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -402,6 +428,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -450,6 +477,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return null;
             }
         }
@@ -472,6 +500,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -493,6 +522,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -511,6 +541,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -534,6 +565,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -554,6 +586,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -572,6 +605,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -595,6 +629,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -615,6 +650,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -633,6 +669,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -656,6 +693,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -677,6 +715,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
@@ -695,13 +734,14 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return new DatabaseResult(false, ex.Message);
             }
         }
 
         public List<Account> GetAccounts()
         {
-            string sql = "select account.* , banker.* ,customer.* , branch.branchcode , branch.branchname from account , banker ,customer, branch , address where" +
+            string sql = "select distinct account.* , banker.* ,customer.* , branch.branchcode , branch.branchname from account , banker ,customer, branch , address where" +
            " account.bankernationalcode=banker.nationalcode and account.branchcode=branch.branchcode and account.customernationalcode=customer.nationalcode";
 
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -772,6 +812,7 @@ namespace BankMekllat.controller
             }
             catch (MySqlException ex)
             {
+                conn.Close();
                 return null;
             }
         }

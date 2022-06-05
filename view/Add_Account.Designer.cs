@@ -113,9 +113,9 @@ namespace BankMekllat.view
             this.groupBox1.Controls.Add(this.txt_LName);
             this.groupBox1.Controls.Add(this.txt_FName);
             this.groupBox1.Location = new System.Drawing.Point(15, 22);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(589, 267);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -138,7 +138,7 @@ namespace BankMekllat.view
             "male",
             "female"});
             this.combo_gender.Location = new System.Drawing.Point(101, 228);
-            this.combo_gender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.combo_gender.Margin = new System.Windows.Forms.Padding(2);
             this.combo_gender.Name = "combo_gender";
             this.combo_gender.Size = new System.Drawing.Size(66, 21);
             this.combo_gender.TabIndex = 18;
@@ -146,7 +146,7 @@ namespace BankMekllat.view
             // txt_Job
             // 
             this.txt_Job.Location = new System.Drawing.Point(374, 184);
-            this.txt_Job.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Job.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Job.Name = "txt_Job";
             this.txt_Job.Size = new System.Drawing.Size(115, 20);
             this.txt_Job.TabIndex = 17;
@@ -154,7 +154,7 @@ namespace BankMekllat.view
             // txt_Education
             // 
             this.txt_Education.Location = new System.Drawing.Point(101, 186);
-            this.txt_Education.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Education.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Education.Name = "txt_Education";
             this.txt_Education.Size = new System.Drawing.Size(101, 20);
             this.txt_Education.TabIndex = 15;
@@ -162,7 +162,7 @@ namespace BankMekllat.view
             // txt_PhoneNum
             // 
             this.txt_PhoneNum.Location = new System.Drawing.Point(374, 127);
-            this.txt_PhoneNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_PhoneNum.Margin = new System.Windows.Forms.Padding(2);
             this.txt_PhoneNum.Name = "txt_PhoneNum";
             this.txt_PhoneNum.Size = new System.Drawing.Size(115, 20);
             this.txt_PhoneNum.TabIndex = 14;
@@ -170,7 +170,7 @@ namespace BankMekllat.view
             // txt_CustomerNational
             // 
             this.txt_CustomerNational.Location = new System.Drawing.Point(101, 127);
-            this.txt_CustomerNational.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_CustomerNational.Margin = new System.Windows.Forms.Padding(2);
             this.txt_CustomerNational.Name = "txt_CustomerNational";
             this.txt_CustomerNational.Size = new System.Drawing.Size(101, 20);
             this.txt_CustomerNational.TabIndex = 13;
@@ -178,7 +178,7 @@ namespace BankMekllat.view
             // txt_BirthDate
             // 
             this.txt_BirthDate.Location = new System.Drawing.Point(374, 89);
-            this.txt_BirthDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_BirthDate.Margin = new System.Windows.Forms.Padding(2);
             this.txt_BirthDate.Name = "txt_BirthDate";
             this.txt_BirthDate.Size = new System.Drawing.Size(115, 20);
             this.txt_BirthDate.TabIndex = 12;
@@ -186,7 +186,7 @@ namespace BankMekllat.view
             // txt_FatherName
             // 
             this.txt_FatherName.Location = new System.Drawing.Point(101, 89);
-            this.txt_FatherName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_FatherName.Margin = new System.Windows.Forms.Padding(2);
             this.txt_FatherName.Name = "txt_FatherName";
             this.txt_FatherName.Size = new System.Drawing.Size(101, 20);
             this.txt_FatherName.TabIndex = 11;
@@ -274,7 +274,7 @@ namespace BankMekllat.view
             // txt_LName
             // 
             this.txt_LName.Location = new System.Drawing.Point(374, 43);
-            this.txt_LName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_LName.Margin = new System.Windows.Forms.Padding(2);
             this.txt_LName.Name = "txt_LName";
             this.txt_LName.Size = new System.Drawing.Size(115, 20);
             this.txt_LName.TabIndex = 1;
@@ -282,7 +282,7 @@ namespace BankMekllat.view
             // txt_FName
             // 
             this.txt_FName.Location = new System.Drawing.Point(101, 43);
-            this.txt_FName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_FName.Margin = new System.Windows.Forms.Padding(2);
             this.txt_FName.Name = "txt_FName";
             this.txt_FName.Size = new System.Drawing.Size(101, 20);
             this.txt_FName.TabIndex = 0;
@@ -292,7 +292,7 @@ namespace BankMekllat.view
             this.panel1.Controls.Add(this.btn_Submit);
             this.panel1.Controls.Add(this.groupBox2);
             this.panel1.Location = new System.Drawing.Point(2, 462);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(602, 417);
             this.panel1.TabIndex = 1;
@@ -301,7 +301,7 @@ namespace BankMekllat.view
             // 
             this.btn_Submit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(144)))), ((int)(((byte)(128)))));
             this.btn_Submit.Location = new System.Drawing.Point(245, 349);
-            this.btn_Submit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn_Submit.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Submit.Name = "btn_Submit";
             this.btn_Submit.Size = new System.Drawing.Size(110, 41);
             this.btn_Submit.TabIndex = 1;
@@ -336,9 +336,9 @@ namespace BankMekllat.view
             this.groupBox2.Controls.Add(this.txt_BankerCode);
             this.groupBox2.Controls.Add(this.txt_AccountNum);
             this.groupBox2.Location = new System.Drawing.Point(13, 17);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(584, 306);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
@@ -347,7 +347,7 @@ namespace BankMekllat.view
             // txt_Balance
             // 
             this.txt_Balance.Location = new System.Drawing.Point(149, 250);
-            this.txt_Balance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Balance.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Balance.Name = "txt_Balance";
             this.txt_Balance.Size = new System.Drawing.Size(102, 20);
             this.txt_Balance.TabIndex = 24;
@@ -465,7 +465,7 @@ namespace BankMekllat.view
             // textBox21
             // 
             this.textBox21.Location = new System.Drawing.Point(394, 375);
-            this.textBox21.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox21.Margin = new System.Windows.Forms.Padding(2);
             this.textBox21.Name = "textBox21";
             this.textBox21.Size = new System.Drawing.Size(102, 20);
             this.textBox21.TabIndex = 11;
@@ -473,7 +473,7 @@ namespace BankMekllat.view
             // textBox20
             // 
             this.textBox20.Location = new System.Drawing.Point(394, 343);
-            this.textBox20.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox20.Margin = new System.Windows.Forms.Padding(2);
             this.textBox20.Name = "textBox20";
             this.textBox20.Size = new System.Drawing.Size(102, 20);
             this.textBox20.TabIndex = 10;
@@ -481,7 +481,7 @@ namespace BankMekllat.view
             // txt_Profit
             // 
             this.txt_Profit.Location = new System.Drawing.Point(387, 214);
-            this.txt_Profit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Profit.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Profit.Name = "txt_Profit";
             this.txt_Profit.Size = new System.Drawing.Size(102, 20);
             this.txt_Profit.TabIndex = 9;
@@ -489,7 +489,7 @@ namespace BankMekllat.view
             // txt_OpeningDate
             // 
             this.txt_OpeningDate.Location = new System.Drawing.Point(149, 212);
-            this.txt_OpeningDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_OpeningDate.Margin = new System.Windows.Forms.Padding(2);
             this.txt_OpeningDate.Name = "txt_OpeningDate";
             this.txt_OpeningDate.Size = new System.Drawing.Size(102, 20);
             this.txt_OpeningDate.TabIndex = 8;
@@ -497,7 +497,7 @@ namespace BankMekllat.view
             // txt_AccType
             // 
             this.txt_AccType.Location = new System.Drawing.Point(387, 168);
-            this.txt_AccType.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_AccType.Margin = new System.Windows.Forms.Padding(2);
             this.txt_AccType.Name = "txt_AccType";
             this.txt_AccType.Size = new System.Drawing.Size(102, 20);
             this.txt_AccType.TabIndex = 7;
@@ -505,7 +505,7 @@ namespace BankMekllat.view
             // txt_SecondPass
             // 
             this.txt_SecondPass.Location = new System.Drawing.Point(149, 166);
-            this.txt_SecondPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_SecondPass.Margin = new System.Windows.Forms.Padding(2);
             this.txt_SecondPass.Name = "txt_SecondPass";
             this.txt_SecondPass.Size = new System.Drawing.Size(102, 20);
             this.txt_SecondPass.TabIndex = 6;
@@ -513,7 +513,7 @@ namespace BankMekllat.view
             // txt_FirstPass
             // 
             this.txt_FirstPass.Location = new System.Drawing.Point(387, 126);
-            this.txt_FirstPass.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_FirstPass.Margin = new System.Windows.Forms.Padding(2);
             this.txt_FirstPass.Name = "txt_FirstPass";
             this.txt_FirstPass.Size = new System.Drawing.Size(102, 20);
             this.txt_FirstPass.TabIndex = 5;
@@ -521,7 +521,7 @@ namespace BankMekllat.view
             // txt_Sheba
             // 
             this.txt_Sheba.Location = new System.Drawing.Point(149, 126);
-            this.txt_Sheba.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_Sheba.Margin = new System.Windows.Forms.Padding(2);
             this.txt_Sheba.Name = "txt_Sheba";
             this.txt_Sheba.Size = new System.Drawing.Size(102, 20);
             this.txt_Sheba.TabIndex = 4;
@@ -529,7 +529,7 @@ namespace BankMekllat.view
             // txt_CardNum
             // 
             this.txt_CardNum.Location = new System.Drawing.Point(387, 82);
-            this.txt_CardNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_CardNum.Margin = new System.Windows.Forms.Padding(2);
             this.txt_CardNum.Name = "txt_CardNum";
             this.txt_CardNum.Size = new System.Drawing.Size(102, 20);
             this.txt_CardNum.TabIndex = 3;
@@ -537,7 +537,7 @@ namespace BankMekllat.view
             // txt_BranchCode
             // 
             this.txt_BranchCode.Location = new System.Drawing.Point(149, 82);
-            this.txt_BranchCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_BranchCode.Margin = new System.Windows.Forms.Padding(2);
             this.txt_BranchCode.Name = "txt_BranchCode";
             this.txt_BranchCode.Size = new System.Drawing.Size(102, 20);
             this.txt_BranchCode.TabIndex = 2;
@@ -545,7 +545,7 @@ namespace BankMekllat.view
             // txt_BankerCode
             // 
             this.txt_BankerCode.Location = new System.Drawing.Point(387, 38);
-            this.txt_BankerCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_BankerCode.Margin = new System.Windows.Forms.Padding(2);
             this.txt_BankerCode.Name = "txt_BankerCode";
             this.txt_BankerCode.Size = new System.Drawing.Size(102, 20);
             this.txt_BankerCode.TabIndex = 1;
@@ -553,7 +553,7 @@ namespace BankMekllat.view
             // txt_AccountNum
             // 
             this.txt_AccountNum.Location = new System.Drawing.Point(149, 38);
-            this.txt_AccountNum.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txt_AccountNum.Margin = new System.Windows.Forms.Padding(2);
             this.txt_AccountNum.Name = "txt_AccountNum";
             this.txt_AccountNum.Size = new System.Drawing.Size(102, 20);
             this.txt_AccountNum.TabIndex = 0;
@@ -664,9 +664,10 @@ namespace BankMekllat.view
             this.Controls.Add(this.addres_panel);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Add_Account";
             this.Text = "Add_Account";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Add_Account_FormClosed);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel1.ResumeLayout(false);

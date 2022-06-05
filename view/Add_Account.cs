@@ -38,6 +38,7 @@ namespace BankMekllat.view
                 result = databaseManager.addCustomer(customer);
                 if (!result.Result)
                 {
+                    databaseManager.deleteAddress(code_posti_txt.Text);
                     MessageBox.Show(result.Error, "error while adding customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     
                 }
@@ -45,16 +46,25 @@ namespace BankMekllat.view
                 {
                     AccountDetails accountDetails = new AccountDetails(txt_AccountNum.Text, txt_BankerCode.Text, txt_CustomerNational.Text,
                         Convert.ToInt32(txt_BranchCode.Text), txt_CardNum.Text, txt_Sheba.Text, txt_FirstPass.Text, txt_SecondPass.Text
-                        , Convert.ToInt32(lbl_AccType.Text), txt_OpeningDate.Text, Convert.ToInt32(txt_Profit.Text), Convert.ToInt64(txt_Balance.Text));
+                        , Convert.ToInt32(txt_AccType.Text), txt_OpeningDate.Text, Convert.ToInt32(txt_Profit.Text), long.Parse(txt_Balance.Text));
                     result = databaseManager.addAccount(accountDetails);
                     if (!result.Result)
                     {
+                        databaseManager.deleteCustomer(txt_CustomerNational.Text);
+                        databaseManager.deleteAddress(code_posti_txt.Text);
                         MessageBox.Show(result.Error, "error while adding customer", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         
                     }
                     else MessageBox.Show("all done ");
                 }
             }
+        }
+
+        private void Add_Account_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            HomeForm form = new HomeForm();
+            form.Show();
         }
     }
 }

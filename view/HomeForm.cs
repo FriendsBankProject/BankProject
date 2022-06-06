@@ -1,7 +1,6 @@
 ﻿
 
 using BankMekllat.controller;
-using BankMekllat.datamodels;
 using BankMekllat.model;
 using System;
 using System.Collections.Generic;
@@ -16,10 +15,6 @@ namespace BankMekllat.view
         List<Banker> bankers;
         List<Account> accounts;
         List<Customer> customers;
-        List<Check> checks;
-        List<Loan> loans;
-        List<Transaction> transactions;
-        List<Address> addresses;
         public HomeForm()
         {
             InitializeComponent();
@@ -30,48 +25,24 @@ namespace BankMekllat.view
              database = DatabaseManager.getInstance();
             branches = database.GetBranches();
              foreach(Branch branch in branches){
-                branches_list.Items.Add(branch);
+                branches_list.Items.Add(branch.ToString());
             }
             bankers = database.GetBankers();
             foreach (Banker banker in bankers)
             {
-                Bankers_list.Items.Add(banker);
+                Bankers_list.Items.Add(banker.ToString());
             }
 
              accounts = database.GetAccounts();
             foreach (Account account in accounts)
             {
-                Accounts_list.Items.Add(account);
+                Accounts_list.Items.Add(account.ToString());
             }
 
              customers = database.GetCustomers();
             foreach (Customer customer in customers)
             {
-                Customers_list.Items.Add(customer);
-            }
-
-            checks = database.GetChecks();
-            foreach(Check check in checks)
-            {
-                check_list.Items.Add(check);
-            }
-
-            loans = database.GetLoans();
-            foreach(Loan loan in loans)
-            {
-                loan_list.Items.Add(loan);
-            }
-
-            transactions = database.GetTransactions();
-            foreach(Transaction transaction in transactions)
-            {
-                transaction_list.Items.Add(transaction);
-            }
-
-            addresses = database.GetAddresses();
-            foreach(Address address in addresses)
-            {
-                address_list.Items.Add(address);
+                Customers_list.Items.Add(customer.ToString());
             }
         }
 

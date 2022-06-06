@@ -36,7 +36,7 @@
             // 
             // edit_btn
             // 
-            this.edit_btn.Location = new System.Drawing.Point(190, 322);
+            this.edit_btn.Location = new System.Drawing.Point(667, 112);
             this.edit_btn.Name = "edit_btn";
             this.edit_btn.Size = new System.Drawing.Size(75, 23);
             this.edit_btn.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // delete_btn
             // 
-            this.delete_btn.Location = new System.Drawing.Point(348, 322);
+            this.delete_btn.Location = new System.Drawing.Point(667, 202);
             this.delete_btn.Name = "delete_btn";
             this.delete_btn.Size = new System.Drawing.Size(75, 23);
             this.delete_btn.TabIndex = 1;
@@ -56,7 +56,7 @@
             // 
             // ok_btn
             // 
-            this.ok_btn.Location = new System.Drawing.Point(520, 322);
+            this.ok_btn.Location = new System.Drawing.Point(667, 285);
             this.ok_btn.Name = "ok_btn";
             this.ok_btn.Size = new System.Drawing.Size(75, 23);
             this.ok_btn.TabIndex = 2;
@@ -76,6 +76,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.message_lbl);
             this.Controls.Add(this.ok_btn);

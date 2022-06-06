@@ -815,6 +815,25 @@ namespace BankMekllat.controller
             }
         }
 
+        public DatabaseResult deleteTransaction(string accountNumber)
+        {
+            string sql = "delete from transaction where accountNumber = '" + accountNumber + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                cmd.ExecuteScalar();
+                conn.Close();
+                return new DatabaseResult(true, "");
+            }
+            catch (MySqlException ex)
+            {
+                conn.Close();
+                return new DatabaseResult(false, ex.Message);
+            }
+        }
+
        public List<Transaction> GetTransactions()
         {
             string sql = "select transaction.* , sender.fname,sender.lname,reciver.fname,reciver.lname " +

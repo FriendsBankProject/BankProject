@@ -123,7 +123,6 @@
     <Compile Include="view\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\Interface1.cs" />
     <Compile Include="view\LoanForm.cs">
       <SubType>Form</SubType>
     </Compile>

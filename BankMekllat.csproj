@@ -105,11 +105,18 @@
     <Compile Include="view\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\Interface1.cs" />
     <Compile Include="view\LoanForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="view\LoanForm.Designer.cs">
       <DependentUpon>LoanForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\MessageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\MessageForm.Designer.cs">
+      <DependentUpon>MessageForm.cs</DependentUpon>
     </Compile>
     <Compile Include="view\TransactionForm.cs">
       <SubType>Form</SubType>
@@ -147,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\LoanForm.resx">
       <DependentUpon>LoanForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\MessageForm.resx">
+      <DependentUpon>MessageForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\TransactionForm.resx">
       <DependentUpon>TransactionForm.cs</DependentUpon>

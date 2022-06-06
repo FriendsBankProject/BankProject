@@ -11,6 +11,7 @@ namespace BankMekllat.view
 {
     public partial class HomeForm : Form
     {
+        DatabaseManager database;
         List<Branch> branches;
         List<Banker> bankers;
         List<Account> accounts;
@@ -26,7 +27,7 @@ namespace BankMekllat.view
 
         private void HomeForm_Load(object sender, EventArgs e)
         {
-            DatabaseManager database = DatabaseManager.getInstance();
+             database = DatabaseManager.getInstance();
             branches = database.GetBranches();
              foreach(Branch branch in branches){
                 branches_list.Items.Add(branch);
@@ -77,75 +78,98 @@ namespace BankMekllat.view
         private void Branches_list_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (branches_list.SelectedIndex == -1)
+            if (branches_list.SelectedIndex != -1)
             {
-                info_lbl.Text = "";
-            }
-            else
-            {    Branch branch = branches[branches_list.SelectedIndex];
-                info_lbl.Text = "Branch:\n" + branch.BranchDetails.Branchname + "\n" + branch.BranchDetails.Branchcode +
-                    "\n\n" + branch.Address.ToString();
-           
+                DatabaseResult databaseResult;
+                Branch branch = branches[branches_list.SelectedIndex];
+                string message = $"Branch:\nname: {branch.BranchDetails.Branchname}" +
+                    $"\nBranch code: {branch.BranchDetails.Branchcode}\n\nAddress:\nCode posti: {branch.Address.Code_Posti}" +
+                    $"\nStreet: {branch.Address.Street}\n{branch.Address.Info}";
+                MessageForm form = new MessageForm(message,
+                    (MessageForm.Result result) =>
 
+                        { 
+                        if (result == MessageForm.Result.delete)
+                        {
+                                DialogResult dialog = MessageBox.Show("Are you sure to delete this item ?", "Delete Warning"
+                                    , MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                                if (dialog == DialogResult.OK)
+                                {
+                                    databaseResult = database.deleteBranch(branch.BranchDetails.Branchcode);
+                                    if (databaseResult.Result)
+                                    {
+                                        databaseResult = database.deleteAddress(branch.Address.Code_Posti);
+                                        if (databaseResult.Result)
+                                        {
+                                            MessageBox.Show("Selected branch deleted successfully");
+                                        }
+                                        else MessageBox.Show(databaseResult.Message, "error while deleting address", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                    }else MessageBox.Show(databaseResult.Message, "error while deleting branch", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                              
+                        }
+                    });
+                form.Show();
+                    
             }
-                
-          
+           
+               
          
         }
 
         private void Bankers_list_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Bankers_list.SelectedIndex == -1)
-            {
-                info_lbl.Text = "";
-            }
-            else
-            {
-                Banker banker = bankers[Bankers_list.SelectedIndex];
-            info_lbl.Text = banker.BankerDetails.ToString();
+            //if (Bankers_list.SelectedIndex == -1)
+            //{
+            //    info_lbl.Text = "";
+            //}
+            //else
+            //{
+            //    Banker banker = bankers[Bankers_list.SelectedIndex];
+            //info_lbl.Text = banker.BankerDetails.ToString();
             
-            info_lbl.Text += "\n\n" + banker.Address.ToString();
+            //info_lbl.Text += "\n\n" + banker.Address.ToString();
 
-            }
+            //}
             
 
         }
 
         private void Accounts_list_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Accounts_list.SelectedIndex == -1)
-            {
-                info_lbl.Text = "";
-            }
-            else
-            {
-                Account account = accounts[Accounts_list.SelectedIndex];
-                info_lbl.Text = "Account:\n" + account.AccountDetails.AccountNumber + "\n" + account.AccountDetails.AccountOpenningDate +
-                    "\n";
-                if (account.AccountDetails.AccountType == 0)
-                {
-                    info_lbl.Text += "current account\n\n";
-                }
-                else info_lbl.Text += "saving account\n\n";
+            //if (Accounts_list.SelectedIndex == -1)
+            //{
+            //    info_lbl.Text = "";
+            //}
+            //else
+            //{
+            //    Account account = accounts[Accounts_list.SelectedIndex];
+            //    info_lbl.Text = "Account:\n" + account.AccountDetails.AccountNumber + "\n" + account.AccountDetails.AccountOpenningDate +
+            //        "\n";
+            //    if (account.AccountDetails.AccountType == 0)
+            //    {
+            //        info_lbl.Text += "current account\n\n";
+            //    }
+            //    else info_lbl.Text += "saving account\n\n";
 
-                info_lbl.Text += account.Banker.ToString();
-                info_lbl.Text += "\n\n" + account.Customer.ToString();
-            }
+            //    info_lbl.Text += account.Banker.ToString();
+            //    info_lbl.Text += "\n\n" + account.Customer.ToString();
+            //}
            
         }
 
         private void Customers_list_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Customers_list.SelectedIndex == -1)
-            {
-                info_lbl.Text = "";
-            }
-            else
-            {
-             Customer customer = customers[Customers_list.SelectedIndex];
-            info_lbl.Text = customer.CustomerDetails.ToString();
-            info_lbl.Text += "\n\n" + customer.Address.ToString();
-            }
+            //if (Customers_list.SelectedIndex == -1)
+            //{
+            //    info_lbl.Text = "";
+            //}
+            //else
+            //{
+            // Customer customer = customers[Customers_list.SelectedIndex];
+            //info_lbl.Text = customer.CustomerDetails.ToString();
+            //info_lbl.Text += "\n\n" + customer.Address.ToString();
+            //}
            
         }
 

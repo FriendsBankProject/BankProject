@@ -53,7 +53,6 @@
             this.banker_btn = new System.Windows.Forms.Button();
             this.branch_btn = new System.Windows.Forms.Button();
             this.account_btn = new System.Windows.Forms.Button();
-            this.info_lbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -90,6 +89,7 @@
             this.branches_list.Name = "branches_list";
             this.branches_list.Size = new System.Drawing.Size(353, 121);
             this.branches_list.TabIndex = 33;
+            this.branches_list.SelectedIndexChanged += new System.EventHandler(this.Branches_list_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -125,6 +125,7 @@
             this.Accounts_list.Name = "Accounts_list";
             this.Accounts_list.Size = new System.Drawing.Size(353, 134);
             this.Accounts_list.TabIndex = 29;
+            this.Accounts_list.SelectedIndexChanged += new System.EventHandler(this.Accounts_list_SelectedIndexChanged);
             // 
             // Customers_list
             // 
@@ -133,6 +134,7 @@
             this.Customers_list.Name = "Customers_list";
             this.Customers_list.Size = new System.Drawing.Size(321, 134);
             this.Customers_list.TabIndex = 28;
+            this.Customers_list.SelectedIndexChanged += new System.EventHandler(this.Customers_list_SelectedIndexChanged);
             // 
             // Bankers_list
             // 
@@ -141,6 +143,7 @@
             this.Bankers_list.Name = "Bankers_list";
             this.Bankers_list.Size = new System.Drawing.Size(312, 121);
             this.Bankers_list.TabIndex = 27;
+            this.Bankers_list.SelectedIndexChanged += new System.EventHandler(this.Bankers_list_SelectedIndexChanged);
             // 
             // panel2
             // 
@@ -233,7 +236,6 @@
             this.panel3.Controls.Add(this.banker_btn);
             this.panel3.Controls.Add(this.branch_btn);
             this.panel3.Controls.Add(this.account_btn);
-            this.panel3.Controls.Add(this.info_lbl);
             this.panel3.Location = new System.Drawing.Point(12, 788);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(832, 130);
@@ -247,6 +249,7 @@
             this.transaction_txt.TabIndex = 63;
             this.transaction_txt.Text = "Add Transaction";
             this.transaction_txt.UseVisualStyleBackColor = true;
+            this.transaction_txt.Click += new System.EventHandler(this.Transaction_txt_Click);
             // 
             // loan_btn
             // 
@@ -256,6 +259,7 @@
             this.loan_btn.TabIndex = 62;
             this.loan_btn.Text = "Add Loan";
             this.loan_btn.UseVisualStyleBackColor = true;
+            this.loan_btn.Click += new System.EventHandler(this.Loan_btn_Click);
             // 
             // check_btn
             // 
@@ -265,6 +269,7 @@
             this.check_btn.TabIndex = 61;
             this.check_btn.Text = "Add Check";
             this.check_btn.UseVisualStyleBackColor = true;
+            this.check_btn.Click += new System.EventHandler(this.Check_btn_Click);
             // 
             // banker_btn
             // 
@@ -274,6 +279,7 @@
             this.banker_btn.TabIndex = 60;
             this.banker_btn.Text = "Add Banker";
             this.banker_btn.UseVisualStyleBackColor = true;
+            this.banker_btn.Click += new System.EventHandler(this.banker_btn_Click);
             // 
             // branch_btn
             // 
@@ -283,6 +289,7 @@
             this.branch_btn.TabIndex = 59;
             this.branch_btn.Text = "Add Branch";
             this.branch_btn.UseVisualStyleBackColor = true;
+            this.branch_btn.Click += new System.EventHandler(this.branch_btn_Click);
             // 
             // account_btn
             // 
@@ -292,14 +299,7 @@
             this.account_btn.TabIndex = 58;
             this.account_btn.Text = "Add Account";
             this.account_btn.UseVisualStyleBackColor = true;
-            // 
-            // info_lbl
-            // 
-            this.info_lbl.AutoSize = true;
-            this.info_lbl.Location = new System.Drawing.Point(44, 62);
-            this.info_lbl.Name = "info_lbl";
-            this.info_lbl.Size = new System.Drawing.Size(0, 13);
-            this.info_lbl.TabIndex = 57;
+            this.account_btn.Click += new System.EventHandler(this.Account_btn_Click);
             // 
             // HomeForm
             // 
@@ -319,7 +319,6 @@
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -351,6 +350,5 @@
         private System.Windows.Forms.Button banker_btn;
         private System.Windows.Forms.Button branch_btn;
         private System.Windows.Forms.Button account_btn;
-        private System.Windows.Forms.Label info_lbl;
     }
 }

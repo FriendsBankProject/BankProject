@@ -55,7 +55,7 @@ namespace BankMekllat.view
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txt_city = new System.Windows.Forms.TextBox();
-            this.txt_address = new System.Windows.Forms.TextBox();
+            this.txt_street = new System.Windows.Forms.TextBox();
             this.txt_other = new System.Windows.Forms.TextBox();
             this.date = new System.Windows.Forms.DateTimePicker();
             this.groupBox1.SuspendLayout();
@@ -245,6 +245,7 @@ namespace BankMekllat.view
             this.btn_submit.TabIndex = 21;
             this.btn_submit.Text = "Submit";
             this.btn_submit.UseVisualStyleBackColor = true;
+            this.btn_submit.Click += new System.EventHandler(this.btn_submit_Click);
             // 
             // combo_gender
             // 
@@ -260,7 +261,7 @@ namespace BankMekllat.view
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txt_other);
-            this.groupBox2.Controls.Add(this.txt_address);
+            this.groupBox2.Controls.Add(this.txt_street);
             this.groupBox2.Controls.Add(this.txt_city);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label12);
@@ -308,12 +309,12 @@ namespace BankMekllat.view
             this.txt_city.Size = new System.Drawing.Size(194, 22);
             this.txt_city.TabIndex = 23;
             // 
-            // txt_address
+            // txt_street
             // 
-            this.txt_address.Location = new System.Drawing.Point(115, 118);
-            this.txt_address.Name = "txt_address";
-            this.txt_address.Size = new System.Drawing.Size(194, 22);
-            this.txt_address.TabIndex = 24;
+            this.txt_street.Location = new System.Drawing.Point(115, 118);
+            this.txt_street.Name = "txt_street";
+            this.txt_street.Size = new System.Drawing.Size(194, 22);
+            this.txt_street.TabIndex = 24;
             // 
             // txt_other
             // 
@@ -375,7 +376,7 @@ namespace BankMekllat.view
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txt_other;
-        private System.Windows.Forms.TextBox txt_address;
+        private System.Windows.Forms.TextBox txt_street;
         private System.Windows.Forms.TextBox txt_city;
         private System.Windows.Forms.DateTimePicker date;
     }

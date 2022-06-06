@@ -322,7 +322,10 @@ namespace BankMekllat.view
                         }
                         else if (result == MessageForm.Result.edit)
                         {
-                            // navagate to edit form
+                            EditCustomer edit = new EditCustomer(details.NationalCode,details.Code_Posti,details.Fname,
+                                details.Lname,details.Birthdate,details.FatherName,details.Education,details.Job,details.Gender,
+                                details.PhoneNumber,address.City,address.Street,address.Info);
+                            edit.Show();
                         }
                     });
                 form.Show();

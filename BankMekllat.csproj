@@ -93,6 +93,18 @@
     <Compile Include="view\CheckForm.Designer.cs">
       <DependentUpon>CheckForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\EditAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\EditAccount.Designer.cs">
+      <DependentUpon>EditAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="view\EditBanker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\EditBanker.Designer.cs">
+      <DependentUpon>EditBanker.cs</DependentUpon>
+    </Compile>
     <Compile Include="view\EditCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +162,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="view\CheckForm.resx">
       <DependentUpon>CheckForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\EditAccount.resx">
+      <DependentUpon>EditAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\EditBanker.resx">
+      <DependentUpon>EditBanker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\EditCustomer.resx">
       <DependentUpon>EditCustomer.cs</DependentUpon>

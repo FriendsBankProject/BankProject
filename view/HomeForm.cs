@@ -1,6 +1,4 @@
-﻿
-
-using BankMekllat.controller;
+﻿using BankMekllat.controller;
 using BankMekllat.datamodels;
 using BankMekllat.model;
 using System;

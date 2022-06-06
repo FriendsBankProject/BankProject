@@ -93,12 +93,6 @@
     <Compile Include="view\CheckForm.Designer.cs">
       <DependentUpon>CheckForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="view\EditBranch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="view\EditBranch.Designer.cs">
-      <DependentUpon>EditBranch.cs</DependentUpon>
-    </Compile>
     <Compile Include="view\EditCustomer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -157,8 +151,8 @@
     <EmbeddedResource Include="view\CheckForm.resx">
       <DependentUpon>CheckForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="view\EditBranch.resx">
-      <DependentUpon>EditBranch.cs</DependentUpon>
+    <EmbeddedResource Include="view\EditCustomer.resx">
+      <DependentUpon>EditCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="view\Form.resx" />
     <EmbeddedResource Include="view\Form1.resx">

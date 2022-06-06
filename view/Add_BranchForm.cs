@@ -30,9 +30,7 @@ namespace BankMekllat.view
             if (result.Result)
             {
                 MessageBox.Show("Done :)");
-                    HomeForm home = new HomeForm();
-                    home.Show();
-                    Close();
+              
             }
             else
                 {

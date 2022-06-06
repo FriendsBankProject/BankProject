@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankMekllat.datamodels
 {
-    class Address
+   public class Address
     {
         private string code_posti;
         private string city;

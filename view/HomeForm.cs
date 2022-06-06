@@ -171,7 +171,10 @@ namespace BankMekllat.view
                         }
                         else if (result == MessageForm.Result.edit)
                         {
-                            // navagate to edit form
+                            database.FormIsRunning = true;
+                            EditBanker editBanker = new EditBanker(banker);
+                            editBanker.Show();
+                            Close();
                         }
                     });
                 form.Show();
@@ -221,7 +224,7 @@ namespace BankMekllat.view
                 string message = $"Account:\nAccount number :{details.AccountNumber}\nCard number : {details.Cardnumber}\n" +
                     $"Sheba account number : {details.Shebaaccountnumber}\nAccount type : {details.AccountType}\n" +
                     $"Openning date : {details.AccountOpenningDate}\nProfit percentage : {details.ProfitPercentage}\n" +
-                    $"Balance : {details.ProfitPercentage}\n\nCustomer:\n National Code: { customer.NationalCode}\n" +
+                    $"Balance : {details.Balance}\n\nCustomer:\n National Code: { customer.NationalCode}\n" +
                    $"First name : {customer.Fname}\nLast name : {customer.Lname}\n" +
                    $"Birth date : {customer.Birthdate}\nJob :{customer.Job}\nFather name : {customer.FatherName}" +
                    $"\nEducation :{customer.Education}\nGender :{cGender}\nPhone number : {customer.PhoneNumber}\n\n" +
@@ -246,21 +249,25 @@ namespace BankMekllat.view
                                 if (databaseResult.Result)
                                 {
                                     databaseResult = database.deleteAccount(details.AccountNumber);
-                                if (databaseResult.Result)
-                                {
+                                    if (databaseResult.Result)
+                                    {
 
-                                    MessageBox.Show("Selected account deleted successfully");
+                                        MessageBox.Show("Selected account deleted successfully");
 
+                                    }
+                                    else MessageBox.Show(databaseResult.Message, "error while deleting account", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 }
-                                else MessageBox.Show(databaseResult.Message, "error while deleting account", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                }else MessageBox.Show(databaseResult.Message, "error while deleting transaction", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                else MessageBox.Show(databaseResult.Message, "error while deleting transaction", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
 
                             }
-                            else if (result == MessageForm.Result.edit)
-                            {
-                                // navagate to edit form
-                            }
+                        }
+                        else if (result == MessageForm.Result.edit)
+                        {
+                            database.FormIsRunning = true;
+                            EditAccount editAccount = new EditAccount(account);
+                            editAccount.Show();
+                            Close();
                         }
                     });
                 form.Show();
@@ -322,10 +329,12 @@ namespace BankMekllat.view
                         }
                         else if (result == MessageForm.Result.edit)
                         {
+                            database.FormIsRunning = true;
                             EditCustomer edit = new EditCustomer(details.NationalCode,details.Code_Posti,details.Fname,
                                 details.Lname,details.Birthdate,details.FatherName,details.Education,details.Job,details.Gender,
                                 details.PhoneNumber,address.City,address.Street,address.Info);
                             edit.Show();
+                            Close();
                         }
                     });
                 form.Show();

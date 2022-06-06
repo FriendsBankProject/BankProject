@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BankMekllat.datamodels
 {
-    class BranchDetails
+   public class BranchDetails
     {
         private string branchcode;
         private string code_Posti;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BankMekllat.model
 {
-    class Account
+   public class Account
     {
         private AccountDetails account;
         private CustomerDetails customer;

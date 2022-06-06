@@ -291,7 +291,7 @@ namespace BankMekllat.controller
             }
             else gender = 0;
             string sql = "update banker set branchcode='" + banker.Branchcode +
-                "',address_id='" + banker.Code_Posti + "',position='" + banker.Position + "',fname='" + banker.Fname + "',lname='" + banker.Lname + 
+                "',code_posti='" + banker.Code_Posti + "',position='" + banker.Position + "',fname='" + banker.Fname + "',lname='" + banker.Lname + 
                 "',birthdate='" + banker.Birthdate
                 + "',fathername='" + banker.Fathername + "',education='" + banker.Education + "',gender=" + gender + ",phonenumber='" + banker.PhoneNumber +
                 "' where nationalcode='"+banker.NationalCode+"'";
@@ -424,8 +424,8 @@ namespace BankMekllat.controller
                 gender = 1;
             }
             else gender = 0;
-            string sql = "update customer set address_id='" + customer.Code_Posti + "',fname='" + customer.Fname +
-                "',lastname='" + customer.Lname + "',birthdate='" + customer.Birthdate + "',fathername='" + customer.FatherName +
+            string sql = "update customer set code_posti='" + customer.Code_Posti + "',fname='" + customer.Fname +
+                "',lname='" + customer.Lname + "',birthdate='" + customer.Birthdate + "',fathername='" + customer.FatherName +
                 "',education='" + customer.Education + "',job='" + customer.Job + "',gender=" + gender + ",phonenumber=" + customer.PhoneNumber
                 + " where nationalcode='" + customer.NationalCode + "'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
@@ -1042,8 +1042,9 @@ namespace BankMekllat.controller
         {
             string sql = "update account set bankernationalcode='"+ account.BankerNationalCode + "',customernationalcode='" +
                  account.CustomerNationalCode + "',branchcode='" + account.Branchcode + "',cardnumber='" + account.Cardnumber + "',shebaaccountnumber='" +
-                 account.Shebaaccountnumber + "',firstpassword='" + account.Firstpass + "',secondpassword='" + account.Secondpass + "',balance='" + account.Balance + 
-                 "' where accountnumber ='"+account.AccountNumber+"'";
+                 account.Shebaaccountnumber + "',firstpassword='" + account.Firstpass + "',secondpassword='" + account.Secondpass + "',profitpercentage='"+
+                 account.ProfitPercentage.ToString()+ "' where accountnumber ='"+account.AccountNumber+"'";
+                
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
             {

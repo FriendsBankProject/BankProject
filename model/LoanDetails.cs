@@ -14,7 +14,11 @@ namespace BankMekllat.datamodels
         private long loanAmount;
         private string dueDate;
         private string bankerNationalCode;
-        
+
+        public LoanDetails()
+        {
+        }
+
         public LoanDetails(int loanNumber,string loanGurantor,string borrowerNationalCode,long loanAmount,
             string dueDate,string bankerNationalCode)
         {

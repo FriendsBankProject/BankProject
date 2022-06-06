@@ -29,22 +29,20 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.ReciverNationalNumber_txt = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.CheckDate = new System.Windows.Forms.DateTimePicker();
             this.CustomerNationalNumber_txt = new System.Windows.Forms.TextBox();
-            this.AccountNumber_txt = new System.Windows.Forms.TextBox();
             this.ReciverName_txt = new System.Windows.Forms.TextBox();
             this.BranchCode_txt = new System.Windows.Forms.TextBox();
             this.Amount_txt = new System.Windows.Forms.TextBox();
             this.CheckNumber_txt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.ReciverNationalNumber_txt = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
             this.Submit_btn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -55,13 +53,11 @@
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.CheckDate);
             this.groupBox1.Controls.Add(this.CustomerNationalNumber_txt);
-            this.groupBox1.Controls.Add(this.AccountNumber_txt);
             this.groupBox1.Controls.Add(this.ReciverName_txt);
             this.groupBox1.Controls.Add(this.BranchCode_txt);
             this.groupBox1.Controls.Add(this.Amount_txt);
             this.groupBox1.Controls.Add(this.CheckNumber_txt);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -75,6 +71,24 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
+            // 
+            // ReciverNationalNumber_txt
+            // 
+            this.ReciverNationalNumber_txt.Location = new System.Drawing.Point(439, 128);
+            this.ReciverNationalNumber_txt.Margin = new System.Windows.Forms.Padding(2);
+            this.ReciverNationalNumber_txt.Name = "ReciverNationalNumber_txt";
+            this.ReciverNationalNumber_txt.Size = new System.Drawing.Size(114, 20);
+            this.ReciverNationalNumber_txt.TabIndex = 26;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(308, 131);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(127, 13);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "Reciver National number:";
             // 
             // CheckDate
             // 
@@ -90,14 +104,6 @@
             this.CustomerNationalNumber_txt.Name = "CustomerNationalNumber_txt";
             this.CustomerNationalNumber_txt.Size = new System.Drawing.Size(114, 20);
             this.CustomerNationalNumber_txt.TabIndex = 20;
-            // 
-            // AccountNumber_txt
-            // 
-            this.AccountNumber_txt.Location = new System.Drawing.Point(109, 128);
-            this.AccountNumber_txt.Margin = new System.Windows.Forms.Padding(2);
-            this.AccountNumber_txt.Name = "AccountNumber_txt";
-            this.AccountNumber_txt.Size = new System.Drawing.Size(114, 20);
-            this.AccountNumber_txt.TabIndex = 17;
             // 
             // ReciverName_txt
             // 
@@ -140,16 +146,6 @@
             this.label9.Size = new System.Drawing.Size(124, 13);
             this.label9.TabIndex = 8;
             this.label9.Text = "Customer national code :";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 131);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 13);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Account number:";
             // 
             // label6
             // 
@@ -202,24 +198,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Check number :";
             // 
-            // ReciverNationalNumber_txt
-            // 
-            this.ReciverNationalNumber_txt.Location = new System.Drawing.Point(439, 128);
-            this.ReciverNationalNumber_txt.Margin = new System.Windows.Forms.Padding(2);
-            this.ReciverNationalNumber_txt.Name = "ReciverNationalNumber_txt";
-            this.ReciverNationalNumber_txt.Size = new System.Drawing.Size(114, 20);
-            this.ReciverNationalNumber_txt.TabIndex = 26;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(308, 131);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(127, 13);
-            this.label8.TabIndex = 25;
-            this.label8.Text = "Reciver National number:";
-            // 
             // Submit_btn
             // 
             this.Submit_btn.Location = new System.Drawing.Point(289, 327);
@@ -230,14 +208,14 @@
             this.Submit_btn.UseVisualStyleBackColor = true;
             this.Submit_btn.Click += new System.EventHandler(this.Submit_btn_Click);
             // 
-            // Check
+            // CheckForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Submit_btn);
             this.Controls.Add(this.groupBox1);
-            this.Name = "Check";
+            this.Name = "CheckForm";
             this.Text = "Check";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Check_FormClosed);
             this.groupBox1.ResumeLayout(false);
@@ -251,13 +229,11 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DateTimePicker CheckDate;
         private System.Windows.Forms.TextBox CustomerNationalNumber_txt;
-        private System.Windows.Forms.TextBox AccountNumber_txt;
         private System.Windows.Forms.TextBox ReciverName_txt;
         private System.Windows.Forms.TextBox BranchCode_txt;
         private System.Windows.Forms.TextBox Amount_txt;
         private System.Windows.Forms.TextBox CheckNumber_txt;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

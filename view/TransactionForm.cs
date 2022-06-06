@@ -16,7 +16,7 @@ namespace BankMekllat.view
             DatabaseResult result;
             DatabaseManager databaseManager = DatabaseManager.getInstance();
             CustomerDetails customer = databaseManager.GetCustomerByCardNumber(destination_txt.Text);
-            Transaction transaction = new Transaction(0, accountno_txt.Text,
+            TransactionDetails transaction = new TransactionDetails(0, accountno_txt.Text,
                     long.Parse(amount_txt.Text), DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss"), destination_txt.Text);
             if (customer == null)
             {

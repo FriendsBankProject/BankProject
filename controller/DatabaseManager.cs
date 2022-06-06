@@ -118,6 +118,35 @@ namespace BankMekllat.controller
             }
         }
 
+         public List<Address> GetAddresses()
+        {
+            string sql = "select * from address";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                List<Address> addresses = new List<Address>();
+                while (reader.Read())
+                {
+                    Address address = new Address();
+                    address.Code_Posti = reader.GetString(0);
+                    address.City = reader.GetString(1);
+                    address.Street = reader.GetString(2);
+                    address.Info = reader.GetString(3);
+
+                    addresses.Add(address);
+                }
+                conn.Close();
+                return addresses;
+            }
+            catch (MySqlException )
+            {
+                conn.Close();
+                return null;
+            }
+        }
 
         //address  ************************************
 
@@ -487,8 +516,7 @@ namespace BankMekllat.controller
         // check *******************************************
         public DatabaseResult addCheck(CheckDetails check)
         {
-            string sql = "insert into _check values ('" + check.CheckNumber + "','" + check.BranchCode + "','" +
-                check.AccountNumber + "','" + check.CustomerNationalCode + "','"+
+            string sql = "insert into _check values ('" + check.CheckNumber + "','" + check.BranchCode + "','" + check.CustomerNationalCode + "','"+
                 check.CheckDate + "'," + check.Amount.ToString() + ",'" + check.ReciverName + "','" + check.ReciverNationalNumber + "')";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
@@ -508,8 +536,7 @@ namespace BankMekllat.controller
 
         public DatabaseResult updateCheck(CheckDetails check)
         {
-            string sql = "update _check set branchcode='" + check.BranchCode + "',accountnumber='" + check.AccountNumber +
-                "',customernationalcode='" + check.CustomerNationalCode +"',checkdate='" + check.CheckDate + "',amount=" + check.Amount.ToString() + ",recivername='" + check.ReciverName +
+            string sql = "update _check set branchcode='" + check.BranchCode +"',customernationalcode='" + check.CustomerNationalCode +"',checkdate='" + check.CheckDate + "',amount=" + check.Amount.ToString() + ",recivername='" + check.ReciverName +
                 "',recivernationalnumber='" + check.ReciverNationalNumber + "' where checknumber='" + check.CheckNumber + "'";
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
@@ -543,6 +570,64 @@ namespace BankMekllat.controller
             {
                 conn.Close();
                 return new DatabaseResult(false, ex.Message);
+            }
+        }
+
+        public List<Check> GetChecks()
+        {
+            string sql = "select * from _check , customer , branch " +
+                "where _check.BranchCode=branch.Branchcode and " +
+                "_check.CustomerNationalCode=customer.NationalCode";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Check> checks = new List<Check>();
+                while (reader.Read())
+                {
+
+                    CheckDetails check = new CheckDetails();
+                    CustomerDetails customer = new CustomerDetails();
+                    BranchDetails branch = new BranchDetails();
+
+                    check.CheckNumber = reader.GetString(0);
+                    check.BranchCode = reader.GetString(1);
+                    check.CustomerNationalCode = reader.GetString(2);
+                    check.CheckDate = reader.GetDateTime(3).ToString("yyyy-MM-dd");
+                    check.Amount = reader.GetInt64(4);
+                    check.ReciverName = reader.GetString(5);
+                    check.ReciverNationalNumber = reader.GetString(6);
+
+                    customer.NationalCode = reader.GetString(7);
+                    customer.Code_Posti = reader.GetString(8);
+                    customer.Fname = reader.GetString(9);
+                    customer.Lname = reader.GetString(10);
+                    customer.Birthdate = reader.GetDateTime(11).ToString();
+                    customer.FatherName = reader.GetString(12);
+                    customer.Education = reader.GetString(13);
+                    customer.Job = reader.GetString(14);
+                    customer.Gender = reader.GetInt16(15) == 1;
+                    customer.PhoneNumber = reader.GetString(16);
+
+                    branch.Branchcode = reader.GetString(17);
+                    branch.Code_Posti = reader.GetString(18);
+                    branch.Branchname = reader.GetString(19);
+
+                    checks.Add(new Check(check, customer, branch));
+
+
+                }
+                conn.Close();
+                return checks;
+
+            }
+            catch (MySqlException )
+            {
+                conn.Close();
+                return null;
             }
         }
         //check ******************************************
@@ -610,10 +695,85 @@ namespace BankMekllat.controller
             }
         }
 
+       public List<Loan> GetLoans()
+        {
+            string sql = "select * from loan , customer as borrower , customer as gurantor , banker " +
+                "where loan.BorrowerNationalCode=borrower.NationalCode and loan.LoanGuarantor= gurantor.NationalCode" +
+                " and loan.BankerNationalCode=banker.NationalCode";
+            MySqlCommand cmd = new MySqlCommand(sql, conn);
+            try
+            {
+                conn.Open();
+                cmd.Prepare();
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                List<Loan> loans = new List<Loan>();
+                while (reader.Read())
+                {
+
+                    LoanDetails loan = new LoanDetails();
+                    CustomerDetails borrower = new CustomerDetails();
+                    CustomerDetails gurantor = new CustomerDetails();
+                    BankerDetails banker = new BankerDetails();
+
+
+                    loan.LoanNumber = reader.GetInt32(0);
+                    loan.LoanAmount = reader.GetInt64(3);
+                    loan.DueDate = reader.GetString(4);
+                    
+
+                    borrower.NationalCode = reader.GetString(6);
+                    borrower.Code_Posti = reader.GetString(7);
+                    borrower.Fname = reader.GetString(8);
+                    borrower.Lname = reader.GetString(9);
+                    borrower.Birthdate = reader.GetDateTime(10).ToString();
+                    borrower.FatherName = reader.GetString(11);
+                    borrower.Education = reader.GetString(12);
+                    borrower.Job = reader.GetString(13);
+                    borrower.Gender = reader.GetInt16(14) == 1;
+                    borrower.PhoneNumber = reader.GetString(15);
+
+                    gurantor.NationalCode = reader.GetString(16);
+                    gurantor.Code_Posti = reader.GetString(17);
+                    gurantor.Fname = reader.GetString(18);
+                    gurantor.Lname = reader.GetString(19);
+                    gurantor.Birthdate = reader.GetDateTime(20).ToString();
+                    gurantor.FatherName = reader.GetString(21);
+                    gurantor.Education = reader.GetString(22);
+                    gurantor.Job = reader.GetString(23);
+                    gurantor.Gender = reader.GetInt16(24) == 1;
+                    gurantor.PhoneNumber = reader.GetString(25);
+
+                    banker.NationalCode = reader.GetString(26);
+                    banker.Branchcode = reader.GetInt32(27);
+                    banker.Code_Posti = reader.GetString(28);
+                    banker.Position = reader.GetInt32(29);
+                    banker.Fname = reader.GetString(30);
+                    banker.Lname = reader.GetString(31);
+                    banker.Birthdate = reader.GetDateTime(32).ToString();
+                    banker.Fathername = reader.GetString(33);
+                    banker.Education = reader.GetString(34);
+                    banker.Gender = reader.GetInt16(35) == 1;
+                    banker.PhoneNumber = reader.GetString(36);
+
+                    loans.Add(new Loan(loan, borrower, gurantor, banker));
+
+
+                }
+                conn.Close();
+                return loans;
+
+            }
+            catch (MySqlException e)
+            {
+                conn.Close();
+                return null;
+            }
+        }
         // loan *******************************
 
         //transaction *******************************
-        public DatabaseResult addTransaction(Transaction transaction)
+        public DatabaseResult addTransaction(TransactionDetails transaction)
         {
             string sql = "insert into transaction(accountnumber,transactionamount,transactiondate,destinationcardnumber) values('"  +
                 transaction.AccountNumber + "','"  + transaction.TransactionAmount + "','" +
@@ -634,7 +794,7 @@ namespace BankMekllat.controller
             }
         }
 
-        public DatabaseResult updateTransaction(Transaction transaction)
+        public DatabaseResult updateTransaction(TransactionDetails transaction)
         {
             string sql = "update transaction set accountnumber='" +
                 transaction.AccountNumber + "',transactionamount='" + transaction.TransactionAmount.ToString() + "',transactiondate='" + transaction.TransactionDate +
@@ -655,22 +815,51 @@ namespace BankMekllat.controller
             }
         }
 
-        public DatabaseResult deleteTransaction(int transactionnumber)
+       public List<Transaction> GetTransactions()
         {
-            string sql = "delete from transaction where transactionnumber='" + transactionnumber.ToString() + "'";
+            string sql = "select transaction.* , sender.fname,sender.lname,reciver.fname,reciver.lname " +
+                "from transaction join account as senderacc on transaction.AccountNumber=senderacc.AccountNumber " +
+                "join customer as sender on senderacc.CustomerNationalCode=sender.NationalCode " +
+                "left join account as reciveracc on transaction.DestinationCardNumber=reciveracc.cardnumber " +
+                "left join customer as reciver on reciveracc.CustomerNationalCode=reciver.NationalCode";
+
             MySqlCommand cmd = new MySqlCommand(sql, conn);
             try
             {
                 conn.Open();
                 cmd.Prepare();
-                cmd.ExecuteScalar();
+                MySqlDataReader reader = cmd.ExecuteReader();
+                List<Transaction> transactions = new List<Transaction>();
+
+                while (reader.Read())
+                {
+                    TransactionDetails transaction = new TransactionDetails();
+                    transaction.TransactionNumber = reader.GetInt32(0);
+                    transaction.AccountNumber = reader.GetString(1);
+                    transaction.TransactionAmount = reader.GetInt64(2);
+                    transaction.TransactionDate = reader.GetDateTime(3).ToString("yyyy-MM-dd HH:mm:ss");
+                    transaction.DestenationCardNumber = reader.GetString(4);
+
+                    string sender = reader.GetString(5) + "  " + reader.GetString(6);
+                    string reciver = "";
+
+                    if (reader.GetValue(7) != DBNull.Value)
+                    {
+                        reciver = reader.GetString(7) + "  " + reader.GetString(8);
+                    }
+                    else reciver = "other bank";
+                     
+
+                    transactions.Add(new Transaction(transaction, sender, reciver));
+                }
                 conn.Close();
-                return new DatabaseResult(true, "");
+                return transactions;
+
             }
-            catch (MySqlException ex)
+            catch (MySqlException e)
             {
                 conn.Close();
-                return new DatabaseResult(false, ex.Message);
+                return null;
             }
         }
 

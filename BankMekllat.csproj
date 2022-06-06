@@ -59,11 +59,14 @@
     <Compile Include="model\BankerDetails.cs" />
     <Compile Include="model\BranchDetails.cs" />
     <Compile Include="model\Branch.cs" />
+    <Compile Include="model\Check.cs" />
     <Compile Include="model\CheckDetails.cs" />
     <Compile Include="model\Customer.cs" />
     <Compile Include="model\CustomerDetails.cs" />
+    <Compile Include="model\Loan.cs" />
     <Compile Include="model\LoanDetails.cs" />
     <Compile Include="model\Transaction.cs" />
+    <Compile Include="model\TransactionDetails.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="view\Add_AccountForm.cs">

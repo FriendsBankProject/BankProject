@@ -23,7 +23,7 @@ namespace BankMekllat.view
         {
             DatabaseResult result;
             DatabaseManager databaseManager = DatabaseManager.getInstance();
-            CheckDetails check = new CheckDetails(CheckNumber_txt.Text, BranchCode_txt.Text, AccountNumber_txt.Text
+            CheckDetails check = new CheckDetails(CheckNumber_txt.Text, BranchCode_txt.Text
                 , CustomerNationalNumber_txt.Text, CheckDate.Value.ToString("yyyy-MM-dd"), long.Parse(Amount_txt.Text),
                 ReciverName_txt.Text, ReciverNationalNumber_txt.Text);
 

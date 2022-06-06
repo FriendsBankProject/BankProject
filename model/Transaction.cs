@@ -1,34 +1,31 @@
-﻿using System;
+﻿using BankMekllat.datamodels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BankMekllat.datamodels
+namespace BankMekllat.model
 {
     class Transaction
     {
-        private int transactionNumber;
-        private string accountNumber;
-        private long transactionAmount;
-        private string transactionDate;
-        private string destenationCardNumber;
+        private TransactionDetails transactionDetails;
+        private string sender;
+        private string reciver;
 
-        public Transaction(int transactionNumber,string accountNumber,long amount,
-            string transactionDate,string destenationCardNumber)
+        public Transaction(TransactionDetails transactionDetails , string sender,string reciver)
         {
-            this.transactionNumber = transactionNumber;
-            this.accountNumber = accountNumber;
-            this.transactionAmount = amount;
-            this.transactionDate = transactionDate;
-            this.destenationCardNumber = destenationCardNumber;
+            this.transactionDetails = transactionDetails;
+            this.sender = sender;
+            this.reciver = reciver;
         }
+        public string Sender { get => sender; set => sender = value; }
+        public string Reciver { get => reciver; set => reciver = value; }
+        internal TransactionDetails TransactionDetails { get => transactionDetails; set => transactionDetails = value; }
 
-        public int TransactionNumber { get => transactionNumber; set => transactionNumber = value; }
-        public string AccountNumber { get => accountNumber; set => accountNumber = value; }
-        public long TransactionAmount { get => transactionAmount; set => transactionAmount = value; }
-        public string TransactionDate { get => transactionDate; set => transactionDate = value; }
-        public string DestenationCardNumber { get => destenationCardNumber; set => destenationCardNumber = value; }
-
+        public override string ToString()
+        {
+            return transactionDetails.TransactionNumber.ToString() + " " + sender + "  " + transactionDetails.TransactionDate + "  " + reciver;
+        }
     }
 }
